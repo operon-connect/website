@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   site: 'https://operonconnect.com',
+
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -17,6 +20,7 @@ export default defineConfig({
       },
     }),
   ],
+
   i18n: {
     defaultLocale: 'my',
     locales: ['my', 'en'],
@@ -24,5 +28,8 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+
   compressHTML: true,
+  output: "hybrid",
+  adapter: cloudflare()
 });
