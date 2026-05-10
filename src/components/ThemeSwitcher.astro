@@ -78,10 +78,7 @@
   // Theme switcher logic
   function initTheme() {
     const html = document.documentElement;
-    const isDark = localStorage.getItem('theme') === 'dark' || 
-                   (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    
-    if (isDark) {
+    if (localStorage.getItem('theme') === 'dark') {
       html.classList.add('dark');
     } else {
       html.classList.remove('dark');

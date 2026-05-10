@@ -37,7 +37,7 @@ html.dark {
   color-scheme: light;
 }
 
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;color-scheme:dark}
 body{background:var(--navy);color:var(--white);font-family:var(--body);overflow-x:hidden;transition:background .3s, color .3s}
 
 /* Grid bg */

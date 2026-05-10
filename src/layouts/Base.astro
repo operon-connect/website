@@ -51,12 +51,11 @@ const hreflangUrls = getAllLocales().map(loc => ({
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- Theme initialization (prevents flash of unstyled content) -->
+  <!-- Theme: default = navy (no class). localStorage 'dark' = user chose light palette (html.dark). -->
   <script is:inline>
-    const stored = localStorage.getItem('theme');
-    const isDark = stored === 'dark' || 
-                   (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    if (isDark) document.documentElement.classList.add('dark');
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
   </script>
 
   <!-- Primary SEO -->
