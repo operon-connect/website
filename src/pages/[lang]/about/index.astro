@@ -1,0 +1,64 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import { getTranslations, getAllLocales } from '../../../i18n/index';
+
+export function getStaticPaths() {
+  return getAllLocales()
+    .filter((locale: string) => locale !== 'my')
+    .map((locale: string) => ({
+      params: { lang: locale }
+    }));
+}
+
+const { lang } = Astro.params;
+const locale = lang as 'en';
+const translations = getTranslations(locale);
+---
+
+<Base
+  title={translations.about.pageTitle}
+  description={translations.about.pageDesc}
+>
+  <Nav />
+
+  <section class="section section-about-hero">
+    <div class="container">
+      <span class="tag">{translations.about.tag}</span>
+      <h1 class="display-hero-about">{translations.about.headline}</h1>
+      <div class="about-mission-grid">
+        <div>
+          <h2 style="font-family:var(--display);font-size:28px;color:#00C2FF;margin-bottom:16px;letter-spacing:.02em">{translations.about.mission.title}</h2>
+          <p style="font-family:var(--myanmar);font-size:15px;color:var(--muted);line-height:1.9">
+            {translations.about.mission.description}
+          </p>
+        </div>
+        <div>
+          <h2 style="font-family:var(--display);font-size:28px;color:#00C2FF;margin-bottom:16px;letter-spacing:.02em">{translations.about.vision.title}</h2>
+          <p style="font-family:var(--myanmar);font-size:15px;color:var(--muted);line-height:1.9">
+            {translations.about.vision.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--navy2)">
+    <div class="container reveal">
+      <span class="tag">{translations.values.tag}</span>
+      <h2 class="section-title">{translations.about.valuesTitle}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(0,194,255,.08)">
+        {translations.about.values.map((v: any) => (
+          <div style="background:var(--navy2);padding:36px">
+            <h3 style="font-family:var(--display);font-size:26px;color:#00C2FF;margin-bottom:6px;letter-spacing:.02em">{v.title}</h3>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;margin-bottom:14px">{v.tagline}</div>
+            <p style="font-family:var(--myanmar);font-size:13px;color:var(--muted);line-height:1.7">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>

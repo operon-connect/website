@@ -1,0 +1,55 @@
+---
+import { getTranslations, getLocaleFromUrl } from '../i18n/index';
+
+const locale = getLocaleFromUrl(Astro.url.pathname);
+const translations = getTranslations(locale);
+const year = new Date().getFullYear();
+
+const getLocalizedLink = (path: string) => {
+  return locale === 'my' ? path : `/en${path}`;
+};
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span style="font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--white)">
+          {translations.common.brand}<span style="color:#00C2FF">.</span>{translations.common.brandAccent}
+        </span>
+        <p>{translations.footer.brandDesc}</p>
+      </div>
+      <div class="footer-col">
+        <h4>{translations.footer.services}</h4>
+        <ul>
+          <li><a href={getLocalizedLink('/vpn')}>{translations.footer.serviceLinks.vpn}</a></li>
+          <li><a href={getLocalizedLink('/vpn#plans')}>{translations.footer.serviceLinks.plans}</a></li>
+          <li><a href={getLocalizedLink('/vpn#apps')}>{translations.footer.serviceLinks.apps}</a></li>
+          <li><a href={getLocalizedLink('/vpn#faq')}>{translations.footer.serviceLinks.faq}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{translations.footer.company}</h4>
+        <ul>
+          <li><a href={getLocalizedLink('/about')}>{translations.footer.companyLinks.about}</a></li>
+          <li><a href={getLocalizedLink('/privacy')}>{translations.footer.companyLinks.privacy}</a></li>
+          <li><a href={getLocalizedLink('/terms')}>{translations.footer.companyLinks.terms}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{translations.footer.connect}</h4>
+        <ul>
+          <li><a href="https://t.me/OperonConnectBot" target="_blank" rel="noopener">{translations.footer.connectLinks.telegram}</a></li>
+          <li><a href="https://t.me/OperonSupportBot" target="_blank" rel="noopener">{translations.footer.connectLinks.support}</a></li>
+          <li><a href="https://github.com/operon-connect" target="_blank" rel="noopener">{translations.footer.connectLinks.github}</a></li>
+          <li><a href="https://github.com/operon-connect/docs" target="_blank" rel="noopener">{translations.footer.connectLinks.documentation}</a></li>
+          <li><a href="https://github.com/operon-connect/brand" target="_blank" rel="noopener">{translations.footer.connectLinks.brandAssets}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">{translations.footer.copyright.replace('{year}', year.toString())}</div>
+      <div class="footer-copy">{translations.footer.copyRights}</div>
+    </div>
+  </div>
+</footer>

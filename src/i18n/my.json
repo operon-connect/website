@@ -1,0 +1,295 @@
+{
+  "lang": "my",
+  "dir": "ltr",
+  "locale": "my_MM",
+  "common": {
+    "brand": "OPERON",
+    "brandAccent": "CONNECT",
+    "tagline": "Myanmar's Trusted Digital Solutions Brand",
+    "madeIn": "လုံခြုံ · ရိုးရှင်း · ကိုယ်ရေးကိုယ်တာ"
+  },
+  "nav": {
+    "home": "Home",
+    "vpn": "VPN",
+    "about": "About",
+    "getVPN": "Get VPN →"
+  },
+  "footer": {
+    "brandDesc": "နေ့စဉ်လူနေမှုနှင့် လုပ်ငန်းခွင်သုံး ရိုးရှင်းသော Digital Tools များကို ဖန်တီးပေးခြင်း။",
+    "services": "SERVICES",
+    "company": "COMPANY",
+    "connect": "CONNECT",
+    "serviceLinks": {
+      "vpn": "Operon VPN",
+      "plans": "Plans & Pricing",
+      "apps": "Compatible Apps",
+      "faq": "FAQ"
+    },
+    "companyLinks": {
+      "about": "About Us",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "connectLinks": {
+      "telegram": "Telegram Bot",
+      "support": "Support",
+      "github": "GitHub",
+      "documentation": "Documentation",
+      "brandAssets": "Brand assets"
+    },
+    "copyright": "© {year} OPERON CONNECT. ALL RIGHTS RESERVED.",
+    "copyRights": "လုံခြုံ · ရိုးရှင်း · ကိုယ်ရေးကိုယ်တာ"
+  },
+  "hero": {
+    "tag": "// Digital Solutions",
+    "headline1": "CONNECT",
+    "headline2": "TO MORE",
+    "description": "နေ့စဉ်ဘဝနှင့် လုပ်ငန်းခွင်အတွက် ရိုးရှင်းသော Digital Tools များကို ဖန်တီးပေးသည်။",
+    "ctaPrimary": "Explore VPN Service →",
+    "ctaSecondary": "About Us",
+    "vpnCtaBand": {
+      "title1": "START WITH",
+      "title2": "VPN",
+      "sub": "အခမဲ့ 30GB plan — အကောင့် မှတ်ပုံတင် မလိုဘဲ ၂ မိနစ်ခန့်အတွင်းသာ အသင့်ဖြစ်ပါသည်",
+      "button": "Start with Operon VPN →"
+    }
+  },
+  "services": {
+    "tag": "// Our Services",
+    "title": "Our Services",
+    "subtitle": "Operon Connect မှ ပေးဆောင်သော digital solutions များ",
+    "vpn": {
+      "badge": "LIVE NOW",
+      "title": "Operon VPN",
+      "description": "ကမ္ဘာ့အင်တာနက်သို့ လုံခြုံစွာ လွတ်လပ်စွာ ချိတ်ဆက်ပါ။ VLESS Reality protocol ဖြင့် detection-proof browsing။",
+      "tags": ["VLESS Reality", "No Logs", "Free 30GB"],
+      "cta": "Explore VPN →"
+    },
+    "service2": {
+      "badge": "COMING SOON",
+      "title": "Next Service",
+      "description": "Operon Connect ၏ နောက် digital solution။ Stay tuned."
+    },
+    "service3": {
+      "badge": "COMING SOON",
+      "title": "More Solutions",
+      "description": "Digital ecosystem ကို ပြည့်ဝစေရန် ဆက်လက် တည်ဆောက်နေသည်။"
+    }
+  },
+  "values": {
+    "tag": "// How we work",
+    "title": "What we stand for",
+    "items": [
+      {
+        "title": "Integrity first",
+        "description": "ရှင်းလင်းသော သတ်မှတ်ချက်၊ ရိုးသားသော ကတိကဝတ်နှင့် လုပ်ငန်းတိုင်းတွင် ယုံကြည်စိတ်ချရသော ဝန်ဆောင်မှုပေးခြင်း။"
+      },
+      {
+        "title": "Open scope",
+        "description": "လမ်းကြောင်းတစ်ခုတည်းမှာ ရပ်တန့်မနေဘဲ ကျွန်ုပ်တို့ ကောင်းမွန်စွာ အကောင်အထည်ဖော်နိုင်မည့် နယ်ပယ်အသစ်များကို အစဉ်တစိုက် ဖန်တီးသွားမည်။"
+      },
+      {
+        "title": "Clarity & craft",
+        "description": "ရှင်းလင်းသော ပြောဆိုဆက်ဆံမှု၊ စနစ်ကျသော လုပ်ငန်းစဉ်နှင့် အသေးစိတ် ဂရုပြုမှုတို့ဖြင့် လူတိုင်း၏ မျှော်မှန်းချက်ကို ဖြည့်ဆည်းပေးရန်။"
+      },
+      {
+        "title": "Built to last",
+        "description": "ခေတ်စားနေသော အရာများနောက် မလိုက်ဘဲ ခိုင်မာသော မိတ်ဖက်ဆက်ဆံရေးနှင့် စဉ်ဆက်မပြတ် တိုးတက်မှုကိုသာ ဦးစားပေးပါသည်။"
+      }
+    ]
+  },
+  "about": {
+    "pageTitle": "About Operon Connect — Brand & principles",
+    "pageDesc": "Operon Connect သည် အထွေထွေ ရည်ရွယ်ချက်ရှိသော brand ဖြစ်သည်။ သင့်လျော်သော လုပ်ငန်းနှင့် ပူးပေါင်းဆောင်ရွက်မှုများတွင် ယုံကြည်ချောက်မှုဖြင့် လုပ်ကိုင်သွားမည်။",
+    "tag": "// About us",
+    "headline": "WHO WE ARE",
+    "mission": {
+      "title": "MISSION",
+      "description": "ကျွန်ုပ်တို့ တည်ဆောက်သမျှ လုပ်ငန်းတိုင်းတွင် ရိုးသားဖြောင့်မတ်မှုကို အခြေခံရန် - လုပ်ဆောင်ချက်များ တိကျသေချာစေခြင်း၊ မျှတစွာ လုပ်ကိုင်ခြင်းနှင့် လိုအပ်သည့် နယ်ပယ်အသစ်များသို့ မှန်ကန်စွာ ချဲ့ထွင်သွားရန်။"
+    },
+    "vision": {
+      "title": "VISION",
+      "description": "မည်သည့်လုပ်ငန်းနယ်ပယ်မှာဖြစ်စေ ယုံကြည်စိတ်ချရတဲ့ လုပ်ဆောင်ချက်တွေနဲ့ ပွင့်လင်းမြင်သာတဲ့ ရည်မှန်းချက်တွေကြောင့် လူအများ အားကိုးရတဲ့ အမှတ်တံဆိပ်တစ်ခု ဖြစ်လာစေရန်။"
+    },
+    "valuesTitle": "Core values",
+    "values": [
+      {
+        "title": "Integrity ဦးစားပေး",
+        "tagline": "ပြောသည်၊ ဆိုလိုသည်၊ လုပ်ပြသည်",
+        "description": "ဒစ်ဂျစ်တယ်ကိရိယာဖြစ်စေ၊ ဝန်ဆောင်မှုဖြစ်စေ၊ အခြားမည်သည့်လုပ်ငန်းမှာဖြစ်စေ - ပွင့်လင်းမြင်သာသော သတ်မှတ်ချက်များ၊ ရိုးသားသော ဈေးကွက်ရှာဖွေခြင်းနှင့် ယုံကြည်စိတ်ချရသော ဝန်ဆောင်မှုပေးခြင်းတို့ဖြင့် လုပ်ကိုင်သွားရန်။"
+      },
+      {
+        "title": "General purpose, serious execution",
+        "tagline": "Not boxed into one niche",
+        "description": "ကျွန်ုပ်တို့သည် လမ်းကြောင်းတစ်ခုတည်းမှာ ရပ်တန့်မနေပါ။ ကျွမ်းကျင်ပိုင်နိုင်စွာ လုပ်ဆောင်နိုင်ပြီး အများအပေါ် မျှတစေမည့် မတူညီသော လုပ်ငန်းများကို ဖန်တီးသွားပါမည်။"
+      },
+      {
+        "title": "Clarity & craft",
+        "tagline": "Easy to understand, solid underneath",
+        "description": "ရှင်းလင်းတဲ့ ပြောဆိုမှုနဲ့ စနစ်ကျတဲ့ လုပ်ဆောင်ချက်တွေကြောင့် သင့်ရဲ့ မျှော်မှန်းချက်တွေကို အကောင်းဆုံး အကောင်အထည်ဖော်ပေးနိုင်ပါတယ်။"
+      },
+      {
+        "title": "Long-term mindset",
+        "tagline": "Partnerships over noise",
+        "description": "ကျွန်ုပ်တို့သည် ခေတ်စားနေသော အရာများကို လိုက်လံလုပ်ဆောင်ခြင်းထက် ရေရှည်လက်တွဲလုပ်ကိုင်မှုနှင့် အရည်အသွေးကိုသာ ဦးစားပေးပါသည်။ သင်၏ အကြံပြုချက်များမှာ ကျွန်ုပ်တို့၏ လုပ်ဆောင်ချက်တိုင်းကို ပိုမိုတိုးတက်ကောင်းမွန်စေရန် အဓိကလမ်းပြပေးပါသည်။"
+      },
+      {
+        "title": "Pragmatic innovation",
+        "tagline": "Use what works",
+        "description": "ကျွန်ုပ်တို့သည် မည်သည့်လုပ်ငန်းမျိုးမှာမဆို ခေတ်ရေစီးကြောင်းနောက်ကို အလွယ်တကူ လိုက်ခြင်းထက် အမှန်တကယ် ရလဒ်ကောင်းထွက်ပေါ်စေမည့် ကိရိယာများနှင့် အကြံဉာဏ်များကိုသာ ရွေးချယ်အသုံးပြုပါသည်။"
+      }
+    ]
+  },
+  "vpn": {
+    "pageTitle": "Operon VPN — Private Internet Access | VLESS Reality",
+    "pageDesc": "မြန်မာနိုင်ငံ၏ အကောင်းဆုံး VPN ဝန်ဆောင်မှု။ Telegram Bot မှ အခမဲ့ 30GB။ Dedicated Family plan ရှိသည် — ဆက်သွယ်ပါ။ Standard နှင့် Premium က မကြာမီပါပဲ။",
+    "hero": {
+      "headline1": "BROWSE",
+      "headline2": "FREE",
+      "headline3": "STAY PRIVATE",
+      "tagline": "ကမ္ဘာ့အင်တာနက်သို့ လုံခြုံစွာ လွတ်လပ်စွာ ချိတ်ဆက်ပါ",
+      "taglineSub": "Military-grade VLESS Reality · No logs",
+      "ctaPrimary": "Get free plan — 0 ks",
+      "ctaSecondary": "View plans ↓",
+      "stats": [
+        { "n": "30GB", "l": "Free monthly data" },
+        { "n": "30s", "l": "Setup time" },
+        { "n": "0", "l": "Logs stored" }
+      ]
+    },
+    "howItWorks": {
+      "tag": "// How it works",
+      "title": "Four steps",
+      "subtitle": "Technical knowledge မလိုဘဲ မိနစ်ပိုင်းအတွင်း connected ဖြစ်မည်",
+      "steps": [
+        {
+          "n": "01",
+          "title": "Open the bot",
+          "desc": "Telegram Bot ကိုဖွင့်၍ စတင်ရန် နှိပ်ပါ"
+        },
+        {
+          "n": "02",
+          "title": "Choose free",
+          "desc": "လက်ရှိတွင် အခမဲ့ plan သာရရှိနိုင်သည် — ငွေပေးစရာ မလိုပါ"
+        },
+        {
+          "n": "03",
+          "title": "Get your link",
+          "desc": "Bot က config link ကို ၃၀ seconds အတွင်း ချက်ချင်းပို့မည်"
+        },
+        {
+          "n": "04",
+          "title": "Connected",
+          "desc": "ကြိုက်တဲ့ app မှာ link ကို import ပြီး connect နှိပ်ပါ — ပြီးပါပြီ"
+        }
+      ]
+    },
+    "pricing": {
+      "tag": "// Pricing",
+      "title": "Plans",
+      "subtitle": "Telegram မှ အခမဲ့ 30GB · Family dedicated node — ဆက်သွယ်ပါ · Standard နှင့် Premium မကြာမီ",
+      "comingSoon": "Standard and Premium below are previews — not available to purchase yet",
+      "popularBadge": "AVAILABLE NOW",
+      "placeholderBadge": "Coming soon",
+      "contactBadge": "CONTACT US",
+      "cta": "Get free plan →",
+      "placeholderCta": "Coming soon",
+      "plans": [
+        {
+          "tier": "FREE",
+          "price": "0",
+          "unit": "ks/mo",
+          "data": "30 GB",
+          "desc": "လစဉ် ၃၀ GB · အခမဲ့ Region အားလုံး",
+          "offerDesc": "30 GB monthly",
+          "features": ["VLESS Reality protocol", "Shadowsocks fallback", "Region switch"],
+          "missing": [],
+          "featured": true,
+          "placeholder": false
+        },
+        {
+          "tier": "STANDARD",
+          "price": "—",
+          "unit": "",
+          "data": "100 GB",
+          "desc": "လစဉ် ၁၀၀ GB · Standard node အားလုံး (ခန့်မှန်းချက်)",
+          "offerDesc": "",
+          "features": ["VLESS Reality protocol", "All standard nodes", "Region switch"],
+          "missing": [],
+          "featured": false,
+          "placeholder": true
+        },
+        {
+          "tier": "PREMIUM",
+          "price": "—",
+          "unit": "",
+          "data": "∞ GB",
+          "desc": "Unlimited · Region အားလုံး (ခန့်မှန်းချက်)",
+          "offerDesc": "",
+          "features": ["VLESS Reality protocol", "All regions", "Region switch"],
+          "missing": [],
+          "featured": false,
+          "placeholder": true
+        },
+        {
+          "tier": "FAMILY",
+          "price": "—",
+          "unit": "",
+          "data": "မိသားစု",
+          "desc": "မိသားစု dedicated node၊ shared ကွန်ရက် မဟုတ်။ ဆက်သွယ်ပါ။",
+          "offerDesc": "",
+          "features": ["VLESS Reality protocol", "Dedicated node — family household only", "Separate from public users — no shared capacity", "Multi-device for your household"],
+          "missing": [],
+          "featured": false,
+          "placeholder": false,
+          "contactOnly": true,
+          "contactCta": "Contact us for Family plan →",
+          "contactHref": "https://t.me/OperonSupportBot"
+        }
+      ]
+    },
+    "apps": {
+      "tag": "// Compatible apps",
+      "title": "Any app you like",
+      "subtitle": "Custom app မလိုဘဲ ကြိုက်တဲ့ open source client နဲ့ သုံးနိုင်သည်",
+      "items": [
+        { "name": "Hiddify", "platforms": "Android · iOS · Windows · Mac · Linux" },
+        { "name": "v2rayNG", "platforms": "Android" },
+        { "name": "v2rayN", "platforms": "Windows" },
+        { "name": "Sing-box", "platforms": "All platforms" },
+        { "name": "Nekoray", "platforms": "Windows · Linux" },
+        { "name": "v2RayTun", "platforms": "iOS" }
+      ]
+    },
+    "faq": {
+      "tag": "// FAQ",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "Do you keep logs?",
+          "answer": "မသိမ်းပါ။ Connection metadata သို့ browsing history ကို server မှာ မသိမ်းပါ။"
+        },
+        {
+          "question": "How much do I get on the free plan?",
+          "answer": "လစဉ် ၃၀ GB ရမည်။ Telegram Bot မှတစ်ဆင့် အချိန်တိုအတွင်း config ရယူနိုင်ပါသည်။"
+        },
+        {
+          "question": "Do I have to pay?",
+          "answer": "အခမဲ့ plan မှာ Telegram Bot မှတစ်ဆင့် ငွေမပေးရပါ။ Dedicated Family plan ရှိပြီး စျေးနှုန်း နှင့် စီစဉ်မှုအတွက် ဆက်သွယ်ပါ။ Standard နှင့် Premium ကို နောက်ပိုင်းတွင် ကြေညာမည်။"
+        },
+        {
+          "question": "Which apps can I use?",
+          "answer": "Hiddify၊ v2rayNG၊ v2rayN၊ Sing-box စတဲ့ အများပြည်သူသုံး client များဖြင့် import လုပ်သုံးနိုင်ပါသည်။"
+        }
+      ]
+    },
+    "cta": {
+      "ariaLabel": "Call to action",
+      "line1": "START",
+      "line2": "NOW",
+      "bodyLine1": "Telegram Bot မှာ /start နှိပ်ပြီး ၂ မိနစ်အတွင်း connected ဖြစ်မည်",
+      "bodyLine2": "အကောင့် မှတ်ပုံတင် မလိုဘဲ Free plan ချက်ချင်းစတင်နိုင်သည်",
+      "button": "Open Telegram Bot →"
+    }
+  }
+}

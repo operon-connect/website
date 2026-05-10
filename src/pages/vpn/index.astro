@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import VpnPageContent from '../../components/VpnPageContent.astro';
+import { getTranslations } from '../../i18n/index';
+import { buildVpnJsonLd } from '../../i18n/vpn-schemas';
+
+const translations = getTranslations('my');
+const { vpnSchema, faqSchema } = buildVpnJsonLd(translations.vpn);
+---
+
+<Base title={translations.vpn.pageTitle} description={translations.vpn.pageDesc}>
+  <script type="application/ld+json" set:html={JSON.stringify(vpnSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <VpnPageContent locale="my" />
+</Base>

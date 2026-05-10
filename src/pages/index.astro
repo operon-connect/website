@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { getTranslations } from '../i18n/index';
+
+const locale = 'my';
+const translations = getTranslations(locale);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Operon Connect",
+  "url": "https://operonconnect.com",
+  "logo": "https://raw.githubusercontent.com/operon-connect/brand/main/logo/operon-brand-dark.svg",
+  "description": translations.hero.description.replace(/<br\s*\/?>/g, ' '),
+  "areaServed": "MM",
+  "sameAs": [
+    "https://github.com/operon-connect",
+    "https://github.com/operon-connect/docs",
+    "https://github.com/operon-connect/brand"
+  ]
+};
+---
+
+<Base
+  title="Operon Connect — Myanmar's Digital Solutions Brand"
+  description="Operon Connect သည် မြန်မာနိုင်ငံ၏ digital solutions brand ဖြစ်သည်။ VPN service မှစပြီး digital tools များကို ဖန်တီးပေးနေသည်။"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <Nav />
+
+  <!-- HERO -->
+  <section class="section section-hero-home" aria-label="Hero">
+    <div class="container">
+      <div style="max-width:900px">
+        <span class="tag">{translations.hero.tag}</span>
+        <h1 class="display-hero-home">
+          <span style="display:block;color:var(--white)">{translations.hero.headline1}</span>
+          <span style="display:block;-webkit-text-stroke:2px #00C2FF;color:transparent">{translations.hero.headline2}</span>
+        </h1>
+        <p style="font-family:var(--myanmar);font-size:clamp(16px,2.5vw,22px);color:var(--muted);margin-bottom:48px;line-height:1.8;max-width:600px">
+          {translations.hero.description}
+        </p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="/vpn" class="btn-primary">{translations.hero.ctaPrimary}</a>
+          <a href="/about" class="btn-ghost">{translations.hero.ctaSecondary}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" style="background:var(--navy2)" aria-labelledby="services-title">
+    <div class="container">
+      <span class="tag">{translations.services.tag}</span>
+      <h2 class="section-title" id="services-title">{translations.services.title}</h2>
+      <p class="section-sub">{translations.services.subtitle}</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+
+        <!-- VPN — LIVE -->
+        <a href="/vpn" class="service-card reveal">
+          <span class="badge">{translations.services.vpn.badge}</span>
+          <h3>{translations.services.vpn.title}</h3>
+          <p>{translations.services.vpn.description}</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
+            {translations.services.vpn.tags.map(tag => (
+              <span style="font-family:var(--mono);font-size:10px;color:var(--muted);border:1px solid rgba(0,194,255,.15);padding:4px 10px">{tag}</span>
+            ))}
+            <span style="font-family:var(--mono);font-size:10px;color:var(--success);border:1px solid rgba(0,200,150,.2);padding:4px 10px">Free 30GB</span>
+          </div>
+          <span class="arrow">{translations.services.vpn.cta}</span>
+        </a>
+
+        <!-- FUTURE SERVICE 2 -->
+        <div class="service-card reveal" style="opacity:.5;cursor:default">
+          <span class="badge" style="background:var(--navy3);color:var(--muted)">{translations.services.service2.badge}</span>
+          <h3 style="color:var(--muted)">{translations.services.service2.title}</h3>
+          <p>{translations.services.service2.description}</p>
+          <span class="arrow" style="color:var(--muted)">Coming soon...</span>
+        </div>
+
+        <!-- FUTURE SERVICE 3 -->
+        <div class="service-card reveal" style="opacity:.3;cursor:default">
+          <span class="badge" style="background:var(--navy3);color:var(--muted)">{translations.services.service3.badge}</span>
+          <h3 style="color:var(--muted)">{translations.services.service3.title}</h3>
+          <p>{translations.services.service3.description}</p>
+          <span class="arrow" style="color:var(--muted)">Coming soon...</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section" aria-labelledby="values-title">
+    <div class="container reveal">
+      <span class="tag">{translations.values.tag}</span>
+      <h2 class="section-title" id="values-title">{translations.values.title}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(0,194,255,.08);margin-top:40px">
+        {translations.values.items.map(v => (
+          <div style="background:var(--navy2);padding:36px">
+            <h3 style="font-family:var(--display);font-size:26px;color:#00C2FF;margin-bottom:6px;letter-spacing:.02em">{v.title}</h3>
+            <p style="font-family:var(--myanmar);font-size:13px;color:var(--muted);line-height:1.7">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="text-align:center;padding:100px 5%;position:relative;z-index:1;border-top:1px solid rgba(0,194,255,.08)" aria-label="Call to action">
+    <h2 class="display-cta-wide">
+      {translations.hero.vpnCtaBand.title1}<br><span style="color:#00C2FF">{translations.hero.vpnCtaBand.title2}</span>
+    </h2>
+    <p style="font-family:var(--myanmar);font-size:16px;color:var(--muted);margin-bottom:40px;line-height:1.8">
+      {translations.hero.vpnCtaBand.sub}
+    </p>
+    <a href="/vpn" class="btn-primary" style="font-size:14px;padding:16px 48px">
+      {translations.hero.vpnCtaBand.button}
+    </a>
+  </section>
+
+  <Footer />
+</Base>

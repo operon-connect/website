@@ -1,0 +1,109 @@
+---
+import { getLocaleFromUrl, getLocaleMetadata, getAllLocales } from '../i18n/index';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+  type?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = 'https://raw.githubusercontent.com/operon-connect/brand/main/logo/operon-brand-dark.svg',
+  canonical = Astro.url.href,
+  type = 'website',
+  noindex = false,
+} = Astro.props;
+
+const locale = getLocaleFromUrl(Astro.url.pathname);
+const localeMetadata = getLocaleMetadata(locale);
+const fullTitle = title.includes('Operon Connect') ? title : `${title} | Operon Connect`;
+
+// Generate hreflang URLs
+const getLocalizedUrl = (loc: string) => {
+  let path = Astro.url.pathname;
+  const match = path.match(/^\/([a-z]{2})(?:\/|$)/);
+  if (match) {
+    path = path.slice(match[0].length - 1) || '/';
+  }
+  
+  const baseUrl = new URL(Astro.url).origin;
+  if (loc === 'my') {
+    return `${baseUrl}${path}`;
+  }
+  return `${baseUrl}/${loc}${path}`;
+};
+
+const hreflangUrls = getAllLocales().map(loc => ({
+  lang: loc,
+  href: getLocalizedUrl(loc),
+}));
+---
+
+<!DOCTYPE html>
+<html lang={localeMetadata.lang} dir={localeMetadata.dir} data-locale={locale}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Theme initialization (prevents flash of unstyled content) -->
+  <script is:inline>
+    const stored = localStorage.getItem('theme');
+    const isDark = stored === 'dark' || 
+                   (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDark) document.documentElement.classList.add('dark');
+  </script>
+
+  <!-- Primary SEO -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Operon Connect" />
+  {noindex ? <meta name="robots" content="noindex,nofollow" /> : <meta name="robots" content="index,follow,max-image-preview:large" />}
+  <link rel="canonical" href={canonical} />
+
+  <!-- hreflang for localization SEO -->
+  {hreflangUrls.map(link => (
+    <link rel="alternate" hreflang={link.lang} href={link.href} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={getLocalizedUrl('my')} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:site_name" content="Operon Connect" />
+  <meta property="og:locale" content={localeMetadata.locale} />
+  {hreflangUrls.filter(l => l.lang !== locale).map(link => (
+    <meta property="og:locale:alternate" content={link.lang === 'my' ? 'my_MM' : 'en_US'} />
+  ))}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Myanmar:wght@300;400;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/styles/global.css" />
+
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+  <script src="/scripts/main.js" defer></script>
+</body>
+</html>

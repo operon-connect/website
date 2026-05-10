@@ -1,0 +1,101 @@
+---
+import { getTranslations, getLocaleFromUrl } from '../i18n/index';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeSwitcher from './ThemeSwitcher.astro';
+
+const locale = getLocaleFromUrl(Astro.url.pathname);
+const translations = getTranslations(locale);
+
+const navLinks = [
+  { href: locale === 'my' ? '/' : '/en/', label: translations.nav.home },
+  { href: locale === 'my' ? '/vpn' : '/en/vpn', label: translations.nav.vpn },
+  { href: locale === 'my' ? '/about' : '/en/about', label: translations.nav.about },
+];
+
+const currentPath = Astro.url.pathname;
+const isCurrentPath = (href: string) => {
+  return currentPath === href || (href !== (locale === 'my' ? '/' : '/en/') && currentPath.startsWith(href));
+};
+---
+
+<nav class="site-nav" id="nav" role="navigation" aria-label="Main navigation">
+  <a href={locale === 'my' ? '/' : '/en/'} class="nav-logo" aria-label="Operon Connect home">
+    <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <line x1="14" y1="2" x2="24" y2="7.5" stroke="#00C2FF" stroke-width=".8" opacity=".4"/>
+      <line x1="24" y1="7.5" x2="24" y2="20.5" stroke="#00C2FF" stroke-width=".8" opacity=".4"/>
+      <line x1="24" y1="20.5" x2="14" y2="26" stroke="#00C2FF" stroke-width=".8" opacity=".4"/>
+      <line x1="14" y1="26" x2="4" y2="20.5" stroke="#00C2FF" stroke-width=".8" opacity=".4"/>
+      <line x1="4" y1="20.5" x2="4" y2="7.5" stroke="#00C2FF" stroke-width=".8" opacity=".4"/>
+      <line x1="4" y1="7.5" x2="14" y2="2" stroke="#00C2FF" stroke-width=".8" opacity=".4"/>
+      <circle cx="14" cy="2" r="2" fill="#00C2FF"/>
+      <circle cx="24" cy="7.5" r="2" fill="#00C2FF" opacity=".7"/>
+      <circle cx="24" cy="20.5" r="2" fill="#00C2FF" opacity=".7"/>
+      <circle cx="14" cy="26" r="2" fill="#00C2FF"/>
+      <circle cx="4" cy="20.5" r="2" fill="#00C2FF" opacity=".7"/>
+      <circle cx="4" cy="7.5" r="2" fill="#00C2FF" opacity=".7"/>
+      <circle cx="14" cy="14" r="4.5" fill="var(--white)" stroke="#00C2FF" stroke-width="1.5"/>
+      <circle cx="14" cy="14" r="2.2" fill="#00C2FF"/>
+    </svg>
+    <span class="nav-wordmark">OPERON<span>.</span>CONNECT</span>
+  </a>
+  <button
+    type="button"
+    class="nav-menu-toggle"
+    id="nav-menu-toggle"
+    aria-expanded="false"
+    aria-controls="primary-nav"
+    aria-label="Open menu"
+  >
+    <span class="nav-menu-bar" aria-hidden="true"></span>
+    <span class="nav-menu-bar" aria-hidden="true"></span>
+    <span class="nav-menu-bar" aria-hidden="true"></span>
+  </button>
+  <ul class="nav-links" id="primary-nav" role="list">
+    {navLinks.map(link => (
+      <li>
+        <a
+          href={link.href}
+          class={isCurrentPath(link.href) ? 'active' : ''}
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+    <li class="mobile-only-nav-item">
+      <a href="https://t.me/OperonConnectBot" class="mobile-nav-cta" target="_blank" rel="noopener">
+        {translations.nav.getVPN}
+      </a>
+    </li>
+  </ul>
+  <div class="nav-toolbar">
+    <ThemeSwitcher />
+    <LanguageSwitcher pathname={Astro.url.pathname} />
+    <a href="https://t.me/OperonConnectBot" class="nav-cta" target="_blank" rel="noopener">
+      {translations.nav.getVPN}
+    </a>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('nav-menu-toggle');
+  const menu = document.getElementById('primary-nav');
+
+  function setOpen(open) {
+    nav?.classList.toggle('nav-is-open', open);
+    toggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  toggle?.addEventListener('click', () => {
+    setOpen(!nav?.classList.contains('nav-is-open'));
+  });
+
+  menu?.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => setOpen(false));
+  });
+
+  window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => {
+    if (e.matches) setOpen(false);
+  });
+</script>
