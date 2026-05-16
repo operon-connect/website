@@ -23,10 +23,15 @@ export function buildVpnJsonLd(vpn: VpnBundle) {
 
   const vpnSchema = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Operon VPN',
-    applicationCategory: 'NetworkingApplication',
-    operatingSystem: 'Android, iOS, Windows, macOS, Linux',
+    '@type': 'Service',
+    name: 'Operon Connect — VPN Service',
+    description:
+      'Privacy-focused VPN Service for Myanmar, operated on open-source networking. Standard VPN clients; no proprietary app.',
+    serviceType: 'VPN Service',
+    areaServed: {
+      '@type': 'Country',
+      name: 'Myanmar',
+    },
     offers: vpn.pricing.plans
       .filter((plan) => !plan.placeholder && plan.offerDesc)
       .map((plan) => ({

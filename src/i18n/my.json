@@ -4,191 +4,174 @@
   "locale": "my_MM",
   "common": {
     "brand": "OPERON",
-    "brandAccent": "CONNECT",
-    "tagline": "Myanmar's Trusted Digital Solutions Brand",
-    "madeIn": "လုံခြုံ · ရိုးရှင်း · ကိုယ်ရေးကိုယ်တာ"
+    "brandAccent": "CONNECT"
   },
   "nav": {
     "home": "Home",
-    "vpn": "VPN",
+    "vpn": "VPN Service",
     "about": "About",
     "getVPN": "Get VPN →"
   },
   "footer": {
-    "brandDesc": "နေ့စဉ်လူနေမှုနှင့် လုပ်ငန်းခွင်သုံး ရိုးရှင်းသော Digital Tools များကို ဖန်တီးပေးခြင်း။",
+    "brandDesc": "ရိုးရှင်းသော digital services များကို လည်ပတ်ပေးနေသည်။ လောလောဆယ် VPN ဝန်ဆောင်မှု။",
     "services": "SERVICES",
     "company": "COMPANY",
-    "connect": "CONNECT",
     "serviceLinks": {
-      "vpn": "Operon VPN",
+      "vpn": "VPN Service",
       "plans": "Plans & Pricing",
       "apps": "Compatible Apps",
       "faq": "FAQ"
     },
     "companyLinks": {
-      "about": "About Us",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "about": "About Us"
     },
-    "connectLinks": {
-      "telegram": "Telegram Bot",
-      "support": "Support",
-      "github": "GitHub",
-      "documentation": "Documentation",
-      "brandAssets": "Brand assets"
-    },
-    "copyright": "© {year} OPERON CONNECT. ALL RIGHTS RESERVED.",
-    "copyRights": "လုံခြုံ · ရိုးရှင်း · ကိုယ်ရေးကိုယ်တာ"
+    "copyright": "© {year} Operon Connect. All rights reserved."
   },
   "hero": {
     "tag": "// Digital Solutions",
     "headline1": "CONNECT",
     "headline2": "TO MORE",
-    "description": "နေ့စဉ်ဘဝနှင့် လုပ်ငန်းခွင်အတွက် ရိုးရှင်းသော Digital Tools များကို ဖန်တီးပေးသည်။",
-    "ctaPrimary": "Explore VPN Service →",
-    "ctaSecondary": "About Us",
+    "homeTitle": "Operon Connect — မြန်မာနိုင်ငံအတွက် VPN ဝန်ဆောင်မှု",
+    "homeDesc": "ရိုးရှင်းသော digital services များ။ အခမဲ့ VPN — လစဉ် 30GB၊ အကောင့် မှတ်ပုံတင် မလိုပါ၊ Telegram မှ တစ်မိနစ်အတွင်း စတင်နိုင်သည်။",
+    "description": "လက်တွေ့အသုံးဝင်မည့် ရိုးရှင်းသည့် ဒစ်ဂျစ်တယ်ဝန်ဆောင်မှုများ။",
+    "ctaPrimary": "VPN ဝန်ဆောင်မှုအကြောင်း လေ့လာရန် →",
+    "ctaSecondary": "ကျွန်တော်တို့အကြောင်း",
     "vpnCtaBand": {
-      "title1": "START WITH",
-      "title2": "VPN",
-      "sub": "အခမဲ့ 30GB plan — အကောင့် မှတ်ပုံတင် မလိုဘဲ ၂ မိနစ်ခန့်အတွင်းသာ အသင့်ဖြစ်ပါသည်",
-      "button": "Start with Operon VPN →"
+      "title1": "VPN",
+      "title2": "SERVICE",
+      "sub": "ကျွန်တော်တို့ဘက်မှ တာဝန်ယူလည်ပတ်ပေးမည့် စိတ်ချရသော open-source VPN စနစ်။ Account ဖွင့်စရာမလိုဘဲ အခမဲ့ 30GB အသုံးပြုနိုင်မည့်အပြင် Telegram မှတစ်ဆင့် ၁ မိနစ်ဝန်းကျင်အတွင်း စတင်အသုံးပြုနိုင်ပါသည်။",
+      "button": "Telegram မှတစ်ဆင့် စတင်ရန် →"
     }
   },
   "services": {
     "tag": "// Our Services",
     "title": "Our Services",
-    "subtitle": "Operon Connect မှ ပေးဆောင်သော digital solutions များ",
+    "subtitle": "လက်ရှိ ရရှိနိုင်မည့် ဝန်ဆောင်မှုများ",
     "vpn": {
-      "badge": "LIVE NOW",
-      "title": "Operon VPN",
-      "description": "ကမ္ဘာ့အင်တာနက်သို့ လုံခြုံစွာ လွတ်လပ်စွာ ချိတ်ဆက်ပါ။ VLESS Reality protocol ဖြင့် detection-proof browsing။",
-      "tags": ["VLESS Reality", "No Logs", "Free 30GB"],
-      "cta": "Explore VPN →"
+      "badge": "Live now",
+      "title": "VPN Service",
+      "description": "မြန်မာနိုင်ငံအတွက် စိတ်ချရသော open-source ကွန်ရက်နည်းပညာ (VLESS Reality, Xray-class cores) များဖြင့် တည်ဆောက်ထားသည့် VPN ဝန်ဆောင်မှု။ Infrastructure ပိုင်းကို ကျွန်ုပ်တို့ဘက်မှ တာဝန်ယူပေးထားပြီး သင်နှစ်သက်ရာ standard client များဖြင့် စိတ်ကြိုက် ချိတ်ဆက်အသုံးပြုနိုင်ပါသည်။",
+      "tags": ["Open-source stack", "VLESS Reality", "No logs"],
+      "cta": "လုပ်ဆောင်ပုံ ကြည့်ရန် →"
     },
     "service2": {
-      "badge": "COMING SOON",
+      "badge": "Coming soon",
       "title": "Next Service",
-      "description": "Operon Connect ၏ နောက် digital solution။ Stay tuned."
+      "description": "သင့်တော်သည့် အခွင့်အလမ်းပေါ်မူတည်၍ နောက်ထပ် ဝန်ဆောင်မှုအသစ်များလည်း ထပ်မံလာဦးမည်ဖြစ်ပါသည်။"
     },
     "service3": {
-      "badge": "COMING SOON",
-      "title": "More Solutions",
-      "description": "Digital ecosystem ကို ပြည့်ဝစေရန် ဆက်လက် တည်ဆောက်နေသည်။"
+      "badge": "Coming soon",
+      "title": "More Services",
+      "description": "အချိန်ကာလ ကန့်သတ်ချက် သို့မဟုတ် ကတိကဝတ်များ မရှိပါ။ လက်တွေ့ကျပြီး အဆင်ပြေမည့်အရာများကိုသာ ဖန်တီးပေးသွားမည်ဖြစ်ပါသည်။"
     }
   },
   "values": {
-    "tag": "// How we work",
-    "title": "What we stand for",
+    "title": "What this actually is",
     "items": [
       {
-        "title": "Integrity first",
-        "description": "ရှင်းလင်းသော သတ်မှတ်ချက်၊ ရိုးသားသော ကတိကဝတ်နှင့် လုပ်ငန်းတိုင်းတွင် ယုံကြည်စိတ်ချရသော ဝန်ဆောင်မှုပေးခြင်း။"
+        "title": "VPN is what we have",
+        "description": "လောလောဆယ်တော့ ဒါတွေပဲ ရနိုင်ပါသေးတယ်။ နောက်ထပ်လည်း တကယ်အဆင်ပြေမယ့် အခြေအနေမျိုးရှိရင် ထပ်လာဦးမှာပါ။"
       },
       {
-        "title": "Open scope",
-        "description": "လမ်းကြောင်းတစ်ခုတည်းမှာ ရပ်တန့်မနေဘဲ ကျွန်ုပ်တို့ ကောင်းမွန်စွာ အကောင်အထည်ဖော်နိုင်မည့် နယ်ပယ်အသစ်များကို အစဉ်တစိုက် ဖန်တီးသွားမည်။"
+        "title": "Open source tech",
+        "description": "ကျွန်တော်တို့က open-source နည်းပညာကိုပဲ သုံးထားတာပါ။ Setup ပြင်ဆင်ပေးပြီး အဆင်ပြေပြေ လည်ပတ်နေအောင်ပဲ တာဝန်ယူ လုပ်ပေးထားတာပါ။"
       },
       {
-        "title": "Clarity & craft",
-        "description": "ရှင်းလင်းသော ပြောဆိုဆက်ဆံမှု၊ စနစ်ကျသော လုပ်ငန်းစဉ်နှင့် အသေးစိတ် ဂရုပြုမှုတို့ဖြင့် လူတိုင်း၏ မျှော်မှန်းချက်ကို ဖြည့်ဆည်းပေးရန်။"
-      },
-      {
-        "title": "Built to last",
-        "description": "ခေတ်စားနေသော အရာများနောက် မလိုက်ဘဲ ခိုင်မာသော မိတ်ဖက်ဆက်ဆံရေးနှင့် စဉ်ဆက်မပြတ် တိုးတက်မှုကိုသာ ဦးစားပေးပါသည်။"
+        "title": "Prices in kyat",
+        "description": "ပြည်တွင်းက ဝယ်ယူနိုင်စွမ်းအပေါ် မူတည်ပြီး ဈေးနှုန်းသတ်မှတ်ထားတာပါ။ USD နဲ့ နိုင်ငံတကာ ဈေးနှုန်းတွေအတိုင်း ကောက်ခံမှာ မဟုတ်ပါဘူး။"
       }
     ]
   },
   "about": {
-    "pageTitle": "About Operon Connect — Brand & principles",
-    "pageDesc": "Operon Connect သည် အထွေထွေ ရည်ရွယ်ချက်ရှိသော brand ဖြစ်သည်။ သင့်လျော်သော လုပ်ငန်းနှင့် ပူးပေါင်းဆောင်ရွက်မှုများတွင် ယုံကြည်ချောက်မှုဖြင့် လုပ်ကိုင်သွားမည်။",
+    "pageTitle": "About Operon Connect",
+    "pageDesc": "ရိုးရှင်းသော digital services များကို လည်ပတ်ပေးနေသော brand တစ်ခု။ လောလောဆယ် VPN ဝန်ဆောင်မှု။",
     "tag": "// About us",
-    "headline": "WHO WE ARE",
+    "headline": "ကျွန်ုပ်တို့ အကြောင်း",
     "mission": {
       "title": "MISSION",
-      "description": "ကျွန်ုပ်တို့ တည်ဆောက်သမျှ လုပ်ငန်းတိုင်းတွင် ရိုးသားဖြောင့်မတ်မှုကို အခြေခံရန် - လုပ်ဆောင်ချက်များ တိကျသေချာစေခြင်း၊ မျှတစွာ လုပ်ကိုင်ခြင်းနှင့် လိုအပ်သည့် နယ်ပယ်အသစ်များသို့ မှန်ကန်စွာ ချဲ့ထွင်သွားရန်။"
+      "description": "လူတိုင်း ယုံကြည်စိတ်ချစွာ ငွေပေးချေအသုံးပြုနိုင်မည့် ရိုးရှင်းလွယ်ကူသော ဒစ်ဂျစ်တယ်ဝန်ဆောင်မှုများကို ဖန်တီးပေးရန်။"
     },
     "vision": {
       "title": "VISION",
-      "description": "မည်သည့်လုပ်ငန်းနယ်ပယ်မှာဖြစ်စေ ယုံကြည်စိတ်ချရတဲ့ လုပ်ဆောင်ချက်တွေနဲ့ ပွင့်လင်းမြင်သာတဲ့ ရည်မှန်းချက်တွေကြောင့် လူအများ အားကိုးရတဲ့ အမှတ်တံဆိပ်တစ်ခု ဖြစ်လာစေရန်။"
+      "description": "ရိုးရှင်းပြီး အဆင်ပြေသော ဒစ်ဂျစ်တယ်ဝန်ဆောင်မှုများအတွက် အားလုံးက အမြဲအားကိုးရမည့် အမှတ်တံဆိပ်တစ်ခု ဖြစ်လာစေရန်။"
     },
-    "valuesTitle": "Core values",
+    "valuesTitle": "What We Do",
     "values": [
       {
-        "title": "Integrity ဦးစားပေး",
-        "tagline": "ပြောသည်၊ ဆိုလိုသည်၊ လုပ်ပြသည်",
-        "description": "ဒစ်ဂျစ်တယ်ကိရိယာဖြစ်စေ၊ ဝန်ဆောင်မှုဖြစ်စေ၊ အခြားမည်သည့်လုပ်ငန်းမှာဖြစ်စေ - ပွင့်လင်းမြင်သာသော သတ်မှတ်ချက်များ၊ ရိုးသားသော ဈေးကွက်ရှာဖွေခြင်းနှင့် ယုံကြည်စိတ်ချရသော ဝန်ဆောင်မှုပေးခြင်းတို့ဖြင့် လုပ်ကိုင်သွားရန်။"
+        "number": "01",
+        "title": "VPN Service",
+        "description": "ယခု လက်ရှိရယူနိုင်ပါပြီ။ Telegram ကနေတစ်ဆင့် လွယ်ကူစွာ အသုံးပြုနိုင်မည့်အပြင် စတင်အသုံးပြုရန်အတွက် အခမဲ့ 30GB Plan ပါဝင်ပါတယ်။"
       },
       {
-        "title": "General purpose, serious execution",
-        "tagline": "Not boxed into one niche",
-        "description": "ကျွန်ုပ်တို့သည် လမ်းကြောင်းတစ်ခုတည်းမှာ ရပ်တန့်မနေပါ။ ကျွမ်းကျင်ပိုင်နိုင်စွာ လုပ်ဆောင်နိုင်ပြီး အများအပေါ် မျှတစေမည့် မတူညီသော လုပ်ငန်းများကို ဖန်တီးသွားပါမည်။"
+        "number": "02",
+        "title": "More Coming",
+        "description": "အမှန်တကယ် အသုံးဝင်ပြီး တန်ဖိုးရှိမည့် အခြား ဒစ်ဂျစ်တယ်ဝန်ဆောင်မှုများကိုလည်း ထပ်မံဖြည့်စွက်ပေးသွားပါမည်။"
       },
       {
-        "title": "Clarity & craft",
-        "tagline": "Easy to understand, solid underneath",
-        "description": "ရှင်းလင်းတဲ့ ပြောဆိုမှုနဲ့ စနစ်ကျတဲ့ လုပ်ဆောင်ချက်တွေကြောင့် သင့်ရဲ့ မျှော်မှန်းချက်တွေကို အကောင်းဆုံး အကောင်အထည်ဖော်ပေးနိုင်ပါတယ်။"
+        "number": "03",
+        "title": "Local Pricing",
+        "description": "ဝန်ဆောင်မှုအားလုံးကို ဒေါ်လာဈေးဖြင့် မဟုတ်ဘဲ မြန်မာနိုင်ငံအတွက် သင့်တင့်မျှတသော ပြည်တွင်းဈေးနှုန်းများဖြင့်သာ သတ်မှတ်ပေးသွားပါမည်။"
       },
       {
-        "title": "Long-term mindset",
-        "tagline": "Partnerships over noise",
-        "description": "ကျွန်ုပ်တို့သည် ခေတ်စားနေသော အရာများကို လိုက်လံလုပ်ဆောင်ခြင်းထက် ရေရှည်လက်တွဲလုပ်ကိုင်မှုနှင့် အရည်အသွေးကိုသာ ဦးစားပေးပါသည်။ သင်၏ အကြံပြုချက်များမှာ ကျွန်ုပ်တို့၏ လုပ်ဆောင်ချက်တိုင်းကို ပိုမိုတိုးတက်ကောင်းမွန်စေရန် အဓိကလမ်းပြပေးပါသည်။"
-      },
-      {
-        "title": "Pragmatic innovation",
-        "tagline": "Use what works",
-        "description": "ကျွန်ုပ်တို့သည် မည်သည့်လုပ်ငန်းမျိုးမှာမဆို ခေတ်ရေစီးကြောင်းနောက်ကို အလွယ်တကူ လိုက်ခြင်းထက် အမှန်တကယ် ရလဒ်ကောင်းထွက်ပေါ်စေမည့် ကိရိယာများနှင့် အကြံဉာဏ်များကိုသာ ရွေးချယ်အသုံးပြုပါသည်။"
+        "number": "04",
+        "title": "No Nonsense",
+        "description": "ကျွန်တော်တို့ ဝန်ဆောင်မှုတစ်ခုကို ရောင်းချတဲ့အခါ ဘာတွေပါဝင်တယ်ဆိုတာကို ပွင့်လင်းမြင်သာစွာဖြင့် အတိအကျ သိရှိစေရပါမည်။"
       }
     ]
   },
   "vpn": {
-    "pageTitle": "Operon VPN — Private Internet Access | VLESS Reality",
-    "pageDesc": "မြန်မာနိုင်ငံ၏ အကောင်းဆုံး VPN ဝန်ဆောင်မှု။ Telegram Bot မှ အခမဲ့ 30GB။ Dedicated Family plan ရှိသည် — ဆက်သွယ်ပါ။ Standard နှင့် Premium က မကြာမီပါပဲ။",
+    "pageTitle": "VPN Service — Operon Connect | Open-source infrastructure",
+    "pageDesc": "မြန်မာနိုင်ငံအတွက် VPN Service — open-source networking (VLESS Reality)၊ Telegram မှ အခမဲ့ ၃၀ GB၊ ပုံမှန် client များသာ သုံးရန်။ မိသားစု plan အတွက် ဆက်သွယ်ပါ။",
     "hero": {
-      "headline1": "BROWSE",
-      "headline2": "FREE",
-      "headline3": "STAY PRIVATE",
-      "tagline": "ကမ္ဘာ့အင်တာနက်သို့ လုံခြုံစွာ လွတ်လပ်စွာ ချိတ်ဆက်ပါ",
-      "taglineSub": "Military-grade VLESS Reality · No logs",
-      "ctaPrimary": "Get free plan — 0 ks",
-      "ctaSecondary": "View plans ↓",
+      "headline1": "Browse",
+      "headline2": "Free",
+      "headline3": "Stay private",
+      "tagline": "လုံခြုံစိတ်ချစွာ ချိတ်ဆက်ပြီး လွတ်လပ်တဲ့ အင်တာနက်ကမ္ဘာကို စိတ်ကြိုက်အသုံးပြုလိုက်ပါ။",
+      "taglineSub": "ကျွန်တော်တို့ တာဝန်ယူမည့် open-source စနစ်သုံး VPN · မည်သည့် Log မှ သိမ်းဆည်းခြင်းမရှိပါ",
+      "ctaPrimary": "အခမဲ့ဗားရှင်း ရယူရန် — ၀ ကျပ်",
+      "ctaSecondary": "အစီအစဉ်များကို ကြည့်ရန် ↓",
       "stats": [
-        { "n": "30GB", "l": "Free monthly data" },
-        { "n": "30s", "l": "Setup time" },
-        { "n": "0", "l": "Logs stored" }
+        {
+          "n": "30GB",
+          "l": "လစဉ် အခမဲ့ဒေတာ"
+        },
+        {
+          "n": "1 min",
+          "l": "ပြင်ဆင်ချိန်"
+        }
       ]
     },
     "howItWorks": {
       "tag": "// How it works",
       "title": "Four steps",
-      "subtitle": "Technical knowledge မလိုဘဲ မိနစ်ပိုင်းအတွင်း connected ဖြစ်မည်",
+      "subtitle": "နည်းပညာပိုင်းဆိုင်ရာ အသိပညာမလိုဘဲ — ၁ မိနစ်ဝန်းကျင်အတွင်း ချိတ်ဆက်နိုင်ပါတယ်",
       "steps": [
         {
           "n": "01",
-          "title": "Open the bot",
-          "desc": "Telegram Bot ကိုဖွင့်၍ စတင်ရန် နှိပ်ပါ"
+          "title": "Open the Bot",
+          "desc": "ကျွန်တော်တို့ရဲ့ Telegram Bot ကို ဝင်ရောက်ပြီး Start ကို နှိပ်ပါ။"
         },
         {
           "n": "02",
-          "title": "Choose free",
-          "desc": "လက်ရှိတွင် အခမဲ့ plan သာရရှိနိုင်သည် — ငွေပေးစရာ မလိုပါ"
+          "title": "Select Free Plan",
+          "desc": "Free Plan ကို ရွေးချယ်ပေးပါ — မည်သည့် ငွေပေးချေမှု အချက်အလက်မှ ဖြည့်သွင်းရန် မလိုပါ။"
         },
         {
           "n": "03",
-          "title": "Get your link",
-          "desc": "Bot က config link ကို ၃၀ seconds အတွင်း ချက်ချင်းပို့မည်"
+          "title": "Get Your Link",
+          "desc": "Bot ကနေ သင်အသုံးပြုရမည့် Config Link ကို ၁ မိနစ်အတွင်း ထုတ်ပေးပါလိမ့်မယ်။"
         },
         {
           "n": "04",
-          "title": "Connected",
-          "desc": "ကြိုက်တဲ့ app မှာ link ကို import ပြီး connect နှိပ်ပါ — ပြီးပါပြီ"
+          "title": "Connect & Go",
+          "desc": "ရရှိလာတဲ့ Link ကို သင့် VPN Client (App) ထဲကို ထည့်သွင်း (Import) ပြီး Connect နှိပ်ရုံပါပဲ — အားလုံးအဆင်သင့်ဖြစ်ပါပြီ။"
         }
       ]
     },
     "pricing": {
       "tag": "// Pricing",
       "title": "Plans",
-      "subtitle": "Telegram မှ အခမဲ့ 30GB · Family dedicated node — ဆက်သွယ်ပါ · Standard နှင့် Premium မကြာမီ",
-      "comingSoon": "Standard and Premium below are previews — not available to purchase yet",
+      "subtitle": "Telegram မှတစ်ဆင့် အခမဲ့ 30GB · မိသားစုသုံး သီးသန့် Node အတွက် — ဆက်သွယ်ရန် · Premium ဗားရှင်း မကြာမီလာမည်",
       "popularBadge": "AVAILABLE NOW",
       "placeholderBadge": "Coming soon",
       "contactBadge": "CONTACT US",
@@ -208,18 +191,6 @@
           "placeholder": false
         },
         {
-          "tier": "STANDARD",
-          "price": "—",
-          "unit": "",
-          "data": "100 GB",
-          "desc": "လစဉ် ၁၀၀ GB · Standard node အားလုံး (ခန့်မှန်းချက်)",
-          "offerDesc": "",
-          "features": ["VLESS Reality protocol", "All standard nodes", "Region switch"],
-          "missing": [],
-          "featured": false,
-          "placeholder": true
-        },
-        {
           "tier": "PREMIUM",
           "price": "—",
           "unit": "",
@@ -235,14 +206,19 @@
           "tier": "FAMILY",
           "price": "—",
           "unit": "",
-          "data": "မိသားစု",
-          "desc": "မိသားစု dedicated node၊ shared ကွန်ရက် မဟုတ်။ ဆက်သွယ်ပါ။",
+          "data": "Dedicated Node",
+          "desc": "သင့်မိသားစုအတွက်ပဲ သီးသန့်သုံးနိုင်မည့် Private Nodes များ — Public ကွန်ရက်များနှင့် လုံးဝသီးခြားစီ ဖြစ်ပါသည်။",
           "offerDesc": "",
-          "features": ["VLESS Reality protocol", "Dedicated node — family household only", "Separate from public users — no shared capacity", "Multi-device for your household"],
+          "features": [
+            "Outline VPN protocol",
+            "Dedicated node — household only",
+            "Separate from public users"
+          ],
           "missing": [],
           "featured": false,
           "placeholder": false,
           "contactOnly": true,
+          "contactDisabled": true,
           "contactCta": "Contact us for Family plan →",
           "contactHref": "https://t.me/OperonSupportBot"
         }
@@ -253,12 +229,30 @@
       "title": "Any app you like",
       "subtitle": "Custom app မလိုဘဲ ကြိုက်တဲ့ open source client နဲ့ သုံးနိုင်သည်",
       "items": [
-        { "name": "Hiddify", "platforms": "Android · iOS · Windows · Mac · Linux" },
-        { "name": "v2rayNG", "platforms": "Android" },
-        { "name": "v2rayN", "platforms": "Windows" },
-        { "name": "Sing-box", "platforms": "All platforms" },
-        { "name": "Nekoray", "platforms": "Windows · Linux" },
-        { "name": "v2RayTun", "platforms": "iOS" }
+        {
+          "name": "Hiddify",
+          "platforms": "Android · iOS · Windows · Mac · Linux"
+        },
+        {
+          "name": "v2rayNG",
+          "platforms": "Android"
+        },
+        {
+          "name": "v2rayN",
+          "platforms": "Windows"
+        },
+        {
+          "name": "Sing-box",
+          "platforms": "All platforms"
+        },
+        {
+          "name": "Nekoray",
+          "platforms": "Windows · Linux"
+        },
+        {
+          "name": "v2RayTun",
+          "platforms": "iOS"
+        }
       ]
     },
     "faq": {
@@ -266,29 +260,29 @@
       "title": "Frequently asked questions",
       "items": [
         {
-          "question": "Do you keep logs?",
-          "answer": "မသိမ်းပါ။ Connection metadata သို့ browsing history ကို server မှာ မသိမ်းပါ။"
+          "question": "အသုံးပြုသူတွေရဲ့ Log တွေကို သိမ်းဆည်းပါသလား။",
+          "answer": "လုံးဝမသိမ်းပါ။ ကျွန်တော်တို့ရဲ့ Server တွေပေါ်မှာ သင်ဘယ်ဆိုက်တွေကြည့်တယ်ဆိုတဲ့ Browsing History ဖြစ်စေ၊ ချိတ်ဆက်မှုဆိုင်ရာ Metadata တွေကိုဖြစ်စေ မည်သည့်အရာမှ သိမ်းဆည်းထားခြင်းမရှိပါ။"
         },
         {
-          "question": "How much do I get on the free plan?",
-          "answer": "လစဉ် ၃၀ GB ရမည်။ Telegram Bot မှတစ်ဆင့် အချိန်တိုအတွင်း config ရယူနိုင်ပါသည်။"
+          "question": "အခမဲ့ဗားရှင်း (Free Plan) မှာ ဒေတာဘယ်လောက်ရမလဲ။",
+          "answer": "တစ်လလျှင် 30 GB ရရှိပါမည်။ Telegram Bot ကနေ သင်အသုံးပြုရမည့် Config ကို ၁ မိနစ်ဝန်းကျင်အတွင်း တိုက်ရိုက်ရယူနိုင်ပါတယ်။"
         },
         {
-          "question": "Do I have to pay?",
-          "answer": "အခမဲ့ plan မှာ Telegram Bot မှတစ်ဆင့် ငွေမပေးရပါ။ Dedicated Family plan ရှိပြီး စျေးနှုန်း နှင့် စီစဉ်မှုအတွက် ဆက်သွယ်ပါ။ Standard နှင့် Premium ကို နောက်ပိုင်းတွင် ကြေညာမည်။"
+          "question": "ငွေပေးချေဖို့ လိုအပ်ပါသလား။",
+          "answer": "Telegram Bot ကနေ ရယူမယ့် အခမဲ့ဗားရှင်းအတွက် တစ်ပြားမှပေးရန်မလိုပါ။ သီးသန့်သုံးချင်သူများအတွက် မိသားစုသုံး Family Plan ကိုလည်း စီစဉ်ပေးထားပြီး ဈေးနှုန်းနှင့် တပ်ဆင်မှုအသေးစိတ်အတွက် ကျွန်တော်တို့ကို တိုက်ရိုက်ဆက်သွယ်နိုင်ပါသည်။ Standard နှင့် Premium Plan များကိုတော့ နောက်မှ ထပ်မံကြေညာပေးသွားပါမည်။"
         },
         {
-          "question": "Which apps can I use?",
-          "answer": "Hiddify၊ v2rayNG၊ v2rayN၊ Sing-box စတဲ့ အများပြည်သူသုံး client များဖြင့် import လုပ်သုံးနိုင်ပါသည်။"
+          "question": "ဘယ်လို App မျိုးတွေနဲ့ ချိတ်ဆက်အသုံးပြုရမလဲ။",
+          "answer": "လူသုံးများတဲ့ Hiddify, v2rayNG, v2rayN, Sing-box အစရှိတဲ့ Clients တွေအပြင် အခြား client app တွေမှာလည်း ရရှိလာတဲ့ Link ကို ထည့်သွင်း (Import) ပြီး တိုက်ရိုက်ချိတ်ဆက်အသုံးပြုနိုင်ပါတယ်။"
         }
       ]
     },
     "cta": {
       "ariaLabel": "Call to action",
-      "line1": "START",
-      "line2": "NOW",
-      "bodyLine1": "Telegram Bot မှာ /start နှိပ်ပြီး ၂ မိနစ်အတွင်း connected ဖြစ်မည်",
-      "bodyLine2": "အကောင့် မှတ်ပုံတင် မလိုဘဲ Free plan ချက်ချင်းစတင်နိုင်သည်",
+      "line1": "Start",
+      "line2": "Now",
+      "bodyLine1": "Telegram Bot ထဲမှာ /start ကို နှိပ်ပြီး ၁ မိနစ်ဝန်းကျင်အတွင်း စတင်ချိတ်ဆက်လိုက်ပါ",
+      "bodyLine2": "Account ဖွင့်စရာမလိုဘဲ အခမဲ့ဗားရှင်းကို ချက်ချင်း အသုံးပြုနိုင်ပါတယ်",
       "button": "Open Telegram Bot →"
     }
   }

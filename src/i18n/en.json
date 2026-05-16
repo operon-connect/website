@@ -4,191 +4,174 @@
   "locale": "en_US",
   "common": {
     "brand": "OPERON",
-    "brandAccent": "CONNECT",
-    "tagline": "Myanmar's Trusted Digital Solutions Brand",
-    "madeIn": "Secure · Simple · Private"
+    "brandAccent": "CONNECT"
   },
   "nav": {
     "home": "Home",
-    "vpn": "VPN",
+    "vpn": "VPN Service",
     "about": "About",
     "getVPN": "Get VPN →"
   },
   "footer": {
-    "brandDesc": "Myanmar's trusted digital solutions brand. Connecting privacy to possibilities.",
+    "brandDesc": "Running simple digital services. Currently: VPN.",
     "services": "SERVICES",
     "company": "COMPANY",
-    "connect": "CONNECT",
     "serviceLinks": {
-      "vpn": "Operon VPN",
+      "vpn": "VPN Service",
       "plans": "Plans & Pricing",
       "apps": "Compatible Apps",
       "faq": "FAQ"
     },
     "companyLinks": {
-      "about": "About Us",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "about": "About Us"
     },
-    "connectLinks": {
-      "telegram": "Telegram Bot",
-      "support": "Support",
-      "github": "GitHub",
-      "documentation": "Documentation",
-      "brandAssets": "Brand assets"
-    },
-    "copyright": "© {year} OPERON CONNECT. ALL RIGHTS RESERVED.",
-    "copyRights": "Secure · Simple · Private"
+    "copyright": "© {year} OPERON CONNECT. ALL RIGHTS RESERVED."
   },
   "hero": {
     "tag": "// Digital Solutions",
     "headline1": "CONNECT",
     "headline2": "TO MORE",
-    "description": "Building simple digital tools for everyday life and work.",
+    "homeTitle": "Operon Connect — VPN Service for Myanmar",
+    "homeDesc": "Simple digital services from Myanmar. Free VPN — 30GB/month, no signup, set up via Telegram in about 1 min.",
+    "description": "Simple digital services you can actually use.",
     "ctaPrimary": "Explore VPN Service →",
     "ctaSecondary": "About Us",
     "vpnCtaBand": {
-      "title1": "START WITH",
-      "title2": "VPN",
-      "sub": "Free 30GB plan — no account registration — ready in about two minutes",
-      "button": "Start with Operon VPN →"
+      "title1": "VPN",
+      "title2": "SERVICE",
+      "sub": "Trusted open-source VPN protocols, managed for you. Enjoy a free 30GB plan with no account signup—ready in about 1 minute via Telegram. ",
+      "button": "Start via Telegram →"
     }
   },
   "services": {
     "tag": "// Our Services",
     "title": "Our Services",
-    "subtitle": "Digital solutions from Operon Connect",
+    "subtitle": "What's available right now",
     "vpn": {
       "badge": "LIVE NOW",
-      "title": "Operon VPN",
-      "description": "Securely and freely connect from Myanmar to the world internet. Detection-proof browsing with VLESS Reality protocol.",
-      "tags": ["VLESS Reality", "No Logs", "Free 30GB"],
-      "cta": "Explore VPN →"
+      "title": "VPN Service",
+      "description": "VPN Service for Myanmar—built on trusted open-source networking (VLESS Reality, Xray-class cores). We run the infrastructure; you connect with standard clients you choose",
+      "tags": ["Open-source stack", "VLESS Reality", "No logs"],
+      "cta": "How it works →"
     },
     "service2": {
       "badge": "COMING SOON",
       "title": "Next Service",
-      "description": "The next digital solution from Operon Connect. Stay tuned."
+      "description": "More may come when the right opportunity is there."
     },
     "service3": {
       "badge": "COMING SOON",
-      "title": "More Solutions",
-      "description": "Continuously building to complete Myanmar's digital ecosystem."
+      "title": "More Services",
+      "description": "No timeline, no promises. Just whatever makes sense."
     }
   },
   "values": {
-    "tag": "// How we work",
-    "title": "What we stand for",
+    "title": "What this actually is",
     "items": [
       {
-        "title": "Integrity first",
-        "description": "Honest offers, clear terms, and dependable follow-through—across every business we touch."
+        "title": "VPN is what we have",
+        "description": "That's all that's available right now. More may come if it makes sense."
       },
       {
-        "title": "Open scope",
-        "description": "A general-purpose brand: we pursue ventures and sectors where we can add real value—not a single fixed lane."
+        "title": "Open source tech",
+        "description": "We just use open-source tech. We handle the setup and keep it running for you."
       },
       {
-        "title": "Clarity & craft",
-        "description": "Straight talk, clean processes, and careful execution—so partners always know what they are getting."
-      },
-      {
-        "title": "Built to last",
-        "description": "Durable relationships and steady improvement over hype, trends, or narrow positioning."
+        "title": "Prices in kyat",
+        "description": "Priced for local purchasing power. No USD, no international markups."
       }
     ]
   },
   "about": {
-    "pageTitle": "About Operon Connect — Brand & principles",
-    "pageDesc": "Operon Connect is a general-purpose brand: we explore products, services, and partnerships with integrity—wherever the work makes sense.",
+    "pageTitle": "About Operon Connect",
+    "pageDesc": "A small brand running useful digital services. Currently: VPN.",
     "tag": "// About us",
     "headline": "WHO WE ARE",
     "mission": {
       "title": "MISSION",
-      "description": "To operate with integrity across the businesses we build—clear execution, fair dealing, and room to grow into new areas when it fits."
+      "description": "To build simple, dependable digital services that deliver real, uncompromised value."
     },
     "vision": {
       "title": "VISION",
-      "description": "To be known for trustworthy work and open ambition: a name people rely on in whatever lines of business we choose to develop."
+      "description": "To be the go-to brand people inherently trust for lightweight, everyday digital infrastructure."
     },
-    "valuesTitle": "Core values",
+    "valuesTitle": "What We Do",
     "values": [
       {
-        "title": "Integrity first",
-        "tagline": "Say it, mean it, deliver it",
-        "description": "Transparent terms, honest marketing, and reliable delivery—whether the work is digital, a service, or something else entirely."
+        "number": "01",
+        "title": "VPN Service",
+        "description": "Live right now. Lightweight, zero-fuss setup via Telegram. Includes a free 30GB plan to get you started."
       },
       {
-        "title": "General purpose, serious execution",
-        "tagline": "Not boxed into one niche",
-        "description": "We are not aiming at a single story. We take on varied businesses where we can execute well and treat people fairly."
+        "number": "02",
+        "title": "More Coming",
+        "description": "We will only build and deploy new services when they are genuinely useful and worth running."
       },
       {
-        "title": "Clarity & craft",
-        "tagline": "Easy to understand, solid underneath",
-        "description": "Plain language, tidy operations, and attention to detail—so expectations stay aligned from day one."
+        "number": "03",
+        "title": "Local Pricing",
+        "description": "Tailored completely for Myanmar. Flat local rates, zero reliance on fluctuating dollar prices, and absolutely no hidden surprises."
       },
       {
-        "title": "Long-term mindset",
-        "tagline": "Partnerships over noise",
-        "description": "We favour relationships and repeatable quality over chasing buzz. Feedback shapes how we improve across everything we do."
-      },
-      {
-        "title": "Pragmatic innovation",
-        "tagline": "Use what works",
-        "description": "We adopt tools and ideas when they serve outcomes—not to follow trends for their own sake in any line of business."
+        "number": "04",
+        "title": "No Nonsense",
+        "description": "Pure transparency. If we are selling a service, you will always know exactly what you are getting and how it works."
       }
     ]
   },
   "vpn": {
-    "pageTitle": "Operon VPN — Private Internet Access | VLESS Reality",
-    "pageDesc": "Secure VPN with VLESS Reality. Free 30GB via Telegram Bot. Dedicated Family plan available — contact us. Standard and Premium coming later.",
+    "pageTitle": "VPN Service — Operon Connect | Open-source infrastructure",
+    "pageDesc": "VPN Service for Myanmar: open-source stack (VLESS Reality), free 30GB via Telegram, standard clients only—no proprietary app. Family plan on request.",
     "hero": {
-      "headline1": "BROWSE",
-      "headline2": "FREE",
-      "headline3": "STAY PRIVATE",
-      "tagline": "Connect securely. Access the global internet freely",
-      "taglineSub": "Military-grade VLESS Reality · No logs",
+      "headline1": "Browse",
+      "headline2": "Free",
+      "headline3": "Stay private",
+      "tagline": "Connect securely. Browse the open internet freely.",
+      "taglineSub": "Managed open-source stack · Zero logs stored",
       "ctaPrimary": "Get free plan — 0 ks",
       "ctaSecondary": "View plans ↓",
       "stats": [
-        { "n": "30GB", "l": "Free monthly data" },
-        { "n": "30s", "l": "Setup time" },
-        { "n": "0", "l": "Logs stored" }
+        {
+          "n": "30GB",
+          "l": "Free monthly data"
+        },
+        {
+          "n": "1 min",
+          "l": "Setup time"
+        }
       ]
     },
     "howItWorks": {
       "tag": "// How it works",
       "title": "Four steps",
-      "subtitle": "No technical knowledge needed — connected in minutes",
+      "subtitle": "No technical knowledge needed — connected in about 1 min",
       "steps": [
         {
           "n": "01",
-          "title": "Open the bot",
-          "desc": "Open our Telegram Bot and tap Start"
+          "title": "Open the Bot",
+          "desc": "Launch our Telegram bot and tap Start."
         },
         {
           "n": "02",
-          "title": "Choose free",
-          "desc": "Select the free plan — no payment required right now"
+          "title": "Select Free Plan",
+          "desc": "Choose the free tier—no payment details required."
         },
         {
           "n": "03",
-          "title": "Get your link",
-          "desc": "The bot sends your config link within about 30 seconds"
+          "title": "Get Your Link",
+          "desc": "The bot will generate your config link in under a minute."
         },
         {
           "n": "04",
-          "title": "Connected",
-          "desc": "Import the link in your app and tap connect — done"
+          "title": "Connect & Go",
+          "desc": "Import the link into your VPN client and tap connect—you're all set."
         }
       ]
     },
     "pricing": {
       "tag": "// Pricing",
       "title": "Plans",
-      "subtitle": "Free 30GB via Telegram · Family dedicated node — contact us · Standard & Premium coming soon",
-      "comingSoon": "Standard and Premium below are previews — not available to purchase yet",
+      "subtitle": "Free 30GB via Telegram · Family dedicated node — contact us · Premium coming soon",
       "popularBadge": "AVAILABLE NOW",
       "placeholderBadge": "Coming soon",
       "contactBadge": "CONTACT US",
@@ -208,22 +191,10 @@
           "placeholder": false
         },
         {
-          "tier": "STANDARD",
-          "price": "—",
-          "unit": "",
-          "data": "100 GB",
-          "desc": "100 GB/mo · All standard nodes (planned)",
-          "offerDesc": "",
-          "features": ["VLESS Reality protocol", "All standard nodes", "Region switch"],
-          "missing": [],
-          "featured": false,
-          "placeholder": true
-        },
-        {
           "tier": "PREMIUM",
           "price": "—",
           "unit": "",
-          "data": "∞ GB",
+          "data": "- GB",
           "desc": "Unlimited · All regions (planned)",
           "offerDesc": "",
           "features": ["VLESS Reality protocol", "All regions", "Region switch"],
@@ -235,14 +206,19 @@
           "tier": "FAMILY",
           "price": "—",
           "unit": "",
-          "data": "Household",
-          "desc": "Dedicated node(s) for your household only — isolated from public free/shared infrastructure. Available — contact us to set up.",
+          "data": "Dedicated Node",
+          "desc": "Private nodes for your family only — completely separate from shared public traffic.",
           "offerDesc": "",
-          "features": ["VLESS Reality protocol", "Dedicated node — family household only", "Separate from public users — no shared capacity", "Multi-device for your household"],
+          "features": [
+            "Outline VPN protocol",
+            "Dedicated node — household only",
+            "Separate from public users"
+          ],
           "missing": [],
           "featured": false,
           "placeholder": false,
           "contactOnly": true,
+          "contactDisabled": true,
           "contactCta": "Contact us for Family plan →",
           "contactHref": "https://t.me/OperonSupportBot"
         }
@@ -253,12 +229,30 @@
       "title": "Any app you like",
       "subtitle": "Use popular open-source clients — no custom app required",
       "items": [
-        { "name": "Hiddify", "platforms": "Android · iOS · Windows · Mac · Linux" },
-        { "name": "v2rayNG", "platforms": "Android" },
-        { "name": "v2rayN", "platforms": "Windows" },
-        { "name": "Sing-box", "platforms": "All platforms" },
-        { "name": "Nekoray", "platforms": "Windows · Linux" },
-        { "name": "v2RayTun", "platforms": "iOS" }
+        {
+          "name": "Hiddify",
+          "platforms": "Android · iOS · Windows · Mac · Linux"
+        },
+        {
+          "name": "v2rayNG",
+          "platforms": "Android"
+        },
+        {
+          "name": "v2rayN",
+          "platforms": "Windows"
+        },
+        {
+          "name": "Sing-box",
+          "platforms": "All platforms"
+        },
+        {
+          "name": "Nekoray",
+          "platforms": "Windows · Linux"
+        },
+        {
+          "name": "v2RayTun",
+          "platforms": "iOS"
+        }
       ]
     },
     "faq": {
@@ -271,7 +265,7 @@
         },
         {
           "question": "How much do I get on the free plan?",
-          "answer": "30 GB per month. Get your config from the Telegram Bot in moments."
+          "answer": "30 GB per month. Get your config from the Telegram Bot in about 1 min."
         },
         {
           "question": "Do I have to pay?",
@@ -287,7 +281,7 @@
       "ariaLabel": "Call to action",
       "line1": "START",
       "line2": "NOW",
-      "bodyLine1": "Press /start in the Telegram Bot and get connected in about two minutes",
+      "bodyLine1": "Press /start in the Telegram Bot and get connected in about 1 min",
       "bodyLine2": "No account registration required — start the free plan instantly",
       "button": "Open Telegram Bot →"
     }

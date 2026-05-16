@@ -2,119 +2,323 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import ButtonLink from '../../components/ButtonLink.astro';
 import { getTranslations, getAllLocales } from '../../i18n/index';
+import type { Locale } from '../../i18n/index';
 
 export function getStaticPaths() {
   return getAllLocales()
-    .filter((locale: string) => locale !== 'my')
+    .filter((locale: string) => locale !== 'en')
     .map((locale: string) => ({
-      params: { lang: locale }
+      params: { lang: locale },
     }));
 }
 
 const { lang } = Astro.params;
-const locale = lang as 'en';
+const locale = lang as Locale;
+const isMy = locale === 'my';
 const translations = getTranslations(locale);
 
 const schema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Operon Connect",
-  "url": "https://operonconnect.com",
-  "logo": "https://raw.githubusercontent.com/operon-connect/brand/main/logo/operon-brand-dark.svg",
-  "description": translations.hero.description.replace(/<br\s*\/?>/g, ' '),
-  "areaServed": "MM",
-  "sameAs": [
-    "https://github.com/operon-connect",
-    "https://github.com/operon-connect/docs",
-    "https://github.com/operon-connect/brand"
-  ]
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Operon Connect',
+  url: 'https://operonconnect.com',
+  logo: new URL('/operon-icon.svg', Astro.site).href,
+  description: translations.hero.description.replace(/<br\s*\/?>/g, ' '),
+  areaServed: 'MM',
+  sameAs: [
+    'https://github.com/operon-connect',
+    'https://github.com/operon-connect/docs',
+    'https://github.com/operon-connect/brand',
+  ],
 };
 ---
 
-<Base
-  title={translations.hero.headline1 + ' ' + translations.hero.headline2 + ' | Operon Connect'}
-  description="Operon Connect သည် မြန်မာနိုင်ငံ၏ digital solutions brand ဖြစ်သည်။ VPN service မှစပြီး digital tools များကို ဖန်တီးပေးနေသည်။"
->
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+<Base title={translations.hero.homeTitle} description={translations.hero.homeDesc}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
 
   <Nav />
 
-  <!-- HERO -->
-  <section class="section section-hero-home" aria-label="Hero">
-    <div class="container">
-      <div style="max-width:900px">
-        <span class="tag">{translations.hero.tag}</span>
-        <h1 class="display-hero-home">
-          <span style="display:block;color:var(--white)">{translations.hero.headline1}</span>
-          <span style="display:block;-webkit-text-stroke:2px #00C2FF;color:transparent">{translations.hero.headline2}</span>
-        </h1>
-        <p style="font-family:var(--myanmar);font-size:clamp(16px,2.5vw,22px);color:var(--muted);margin-bottom:48px;line-height:1.8;max-width:600px">
-          {translations.hero.description}
-        </p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap">
-          <a href={`/${locale}/vpn`} class="btn-primary">{translations.hero.ctaPrimary}</a>
-          <a href={`/${locale}/about`} class="btn-ghost">{translations.hero.ctaSecondary}</a>
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section
+    class="relative z-10 flex flex-col justify-start pb-16 pt-28 max-lg:min-h-0 lg:min-h-screen lg:justify-center lg:pb-24 lg:pt-[clamp(5.5rem,16vh,7.75rem)]"
+    aria-label="Hero"
+  >
+    <div class="mx-auto w-full max-w-6xl px-[5%] sm:px-6">
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <!-- Left: headline + copy + CTAs -->
+        <div>
+          <p
+            class="mb-5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-[color:var(--brand-cyan)]"
+          >
+            {translations.hero.tag}
+          </p>
+          <h1
+            class={`font-display display-hero-home mb-2 leading-none${isMy ? '' : ' uppercase tracking-tight'}`}
+          >
+            <span class="no-my-override block text-[color:var(--white)]"
+              >{translations.hero.headline1}</span
+            >
+            <span class="no-my-override block text-[color:var(--white)]"
+              >{translations.hero.headline2}</span
+            >
+          </h1>
+          <div class="mb-10 h-[3px] w-16 bg-[color:var(--brand-cyan)] sm:mb-12" aria-hidden="true">
+          </div>
+          <p
+            class="mb-12 max-w-md font-body leading-relaxed text-[color:var(--muted)]"
+            style="font-size:clamp(16px,2.5vw,20px)"
+          >
+            {translations.hero.description}
+          </p>
+          <div class="flex flex-wrap gap-3 sm:gap-4">
+            <ButtonLink href={`/${locale}/vpn`} variant="primary" size="md">
+              {translations.hero.ctaPrimary}
+            </ButtonLink>
+            <ButtonLink href={`/${locale}/about`} variant="secondary" size="md">
+              {translations.hero.ctaSecondary}
+            </ButtonLink>
+          </div>
+        </div>
+
+        <!-- Right: brand stats panel -->
+        <div class="reveal hidden lg:block">
+          <div
+            class="rounded-2xl border border-[color:var(--border-card)] bg-[color:var(--navy3)] p-8 shadow-none dark:shadow-sm"
+          >
+            <p
+              class="mb-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]"
+            >
+              // VPN Service — live now
+            </p>
+            <div class="flex flex-col divide-y divide-[color:var(--border-default)]">
+              {
+                translations.vpn.hero.stats.map((s: any) => (
+                  <div class="flex items-end justify-between py-5">
+                    <span
+                      class="no-my-override font-display leading-none text-[color:var(--brand-cyan)]"
+                      style="font-size:clamp(2.5rem,4.5vw,3.5rem)"
+                    >
+                      {s.n}
+                    </span>
+                    <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
+                      {s.l}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+            <div class="mt-6 border-t border-[color:var(--border-default)] pt-6">
+              <a
+                href={`/${locale}/vpn`}
+                class="font-mono text-[11px] uppercase tracking-[0.16em] text-[color:var(--brand-cyan)] no-underline transition-colors hover:text-[color:var(--brand-cyan-dim)]"
+              >
+                {translations.services.vpn.cta}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section" style="background:var(--navy2)" aria-labelledby="services-title">
-    <div class="container">
-      <span class="tag">{translations.services.tag}</span>
-      <h2 class="section-title" id="services-title">{translations.services.title}</h2>
-      <p class="section-sub">{translations.services.subtitle}</p>
+  <!-- ── SERVICES ──────────────────────────────────────────────── -->
+  <section
+    class="relative z-10 border-t border-[color:var(--border-default)] bg-[color:var(--navy2)] py-20 sm:py-24"
+    aria-labelledby="services-title"
+  >
+    <div class="mx-auto w-full max-w-6xl px-[5%] sm:px-6">
+      <header class="mb-10 max-w-2xl sm:mb-12">
+        <p
+          class="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]"
+        >
+          // 01 SERVICES
+        </p>
+        <h2
+          class={`font-display section-heading mb-3 text-[color:var(--white)]${isMy ? '' : ' uppercase tracking-tight'}`}
+          id="services-title"
+        >
+          {translations.services.title}
+        </h2>
+        <p class="font-mono text-[11px] tracking-[0.2em] text-[color:var(--muted)] sm:text-xs">
+          {translations.services.subtitle}
+        </p>
+      </header>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
-
-        <!-- VPN — LIVE -->
-        <a href={`/${locale}/vpn`} class="service-card reveal">
-          <span class="badge">{translations.services.vpn.badge}</span>
-          <h3>{translations.services.vpn.title}</h3>
-          <p>{translations.services.vpn.description}</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
-            {translations.services.vpn.tags.map((tag: string) => (
-              <span style="font-family:var(--mono);font-size:10px;color:var(--muted);border:1px solid rgba(0,194,255,.15);padding:4px 10px">{tag}</span>
-            ))}
-            <span style="font-family:var(--mono);font-size:10px;color:var(--success);border:1px solid rgba(0,200,150,.2);padding:4px 10px">Free 30GB</span>
+      <div class="grid auto-rows-min grid-cols-1 gap-5 lg:grid-cols-3 lg:grid-rows-2 lg:gap-6">
+        <a
+          href={`/${locale}/vpn`}
+          class="reveal group flex min-h-0 flex-col rounded-2xl border border-l-2 border-[color:var(--border-card)] border-l-[color:var(--brand-cyan)] bg-[color:var(--navy3)] p-6 no-underline shadow-none transition-colors duration-300 hover:border-[color:var(--border-strong)] hover:border-l-[color:var(--brand-cyan)] dark:border-l-4 dark:shadow-sm sm:p-8 lg:col-span-2 lg:row-span-2 lg:p-10"
+        >
+          <span
+            class="mb-6 inline-flex self-start rounded-md bg-[color:var(--badge-live-bg)] px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-[color:var(--badge-live-fg)]"
+          >
+            {translations.services.vpn.badge}
+          </span>
+          <h3
+            class={`font-display mb-4 max-w-xl text-[color:var(--white)]${isMy ? '' : ' tracking-wide'}`}
+            style="font-size:clamp(1.5rem,3.2vw,2.35rem)"
+          >
+            {translations.services.vpn.title}
+          </h3>
+          <p
+            class="mb-8 flex-1 font-body text-sm leading-relaxed text-[color:var(--muted)] sm:text-base"
+          >
+            {translations.services.vpn.description}
+          </p>
+          <div class="mb-8 flex flex-wrap gap-2">
+            {
+              translations.services.vpn.tags.map((tag: string) => (
+                <span class="rounded-full border border-[color:var(--border-default)] bg-transparent px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-[color:var(--muted)]">
+                  {tag}
+                </span>
+              ))
+            }
+            <span
+              class="rounded-full border border-[color:color-mix(in_srgb,var(--brand-cyan)_40%,transparent)] bg-[color:color-mix(in_srgb,var(--brand-cyan)_6%,transparent)] px-3 py-1 font-mono text-[10px] font-medium uppercase tracking-wide text-[color:var(--brand-cyan)]"
+            >
+              Free 30GB
+            </span>
           </div>
-          <span class="arrow">{translations.services.vpn.cta}</span>
+          <span
+            class="mt-auto inline-flex items-center gap-2 font-mono text-xs font-medium tracking-wide text-[color:var(--brand-cyan)] transition-all duration-200 hover:text-[color:var(--brand-cyan-dim)] group-hover:gap-3"
+          >
+            {translations.services.vpn.cta}
+          </span>
         </a>
 
-        <!-- FUTURE SERVICE 2 -->
-        <div class="service-card reveal" style="opacity:.5;cursor:default">
-          <span class="badge" style="background:var(--navy3);color:var(--muted)">{translations.services.service2.badge}</span>
-          <h3 style="color:var(--muted)">{translations.services.service2.title}</h3>
-          <p>{translations.services.service2.description}</p>
-          <span class="arrow" style="color:var(--muted)">Coming soon...</span>
+        <div
+          class="reveal flex flex-col rounded-2xl border border-[color:color-mix(in_srgb,var(--border-default)_50%,transparent)] bg-[color:color-mix(in_srgb,var(--navy3)_50%,transparent)] p-5 opacity-70 dark:border-[color:var(--border-default)] dark:bg-white/60 sm:p-6 lg:col-start-3 lg:row-start-1"
+        >
+          <span
+            class="mb-4 inline-flex self-start rounded-md border border-[color:var(--border-default)] bg-[color:var(--navy3)] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[color:var(--muted)]"
+          >
+            {translations.services.service2.badge}
+          </span>
+          <h3
+            class={`font-display mb-2 text-[color:var(--muted)] dark:text-[#374151]${isMy ? '' : ' tracking-wide'}`}
+            style="font-size:clamp(1.125rem,2.2vw,1.5rem)"
+          >
+            {translations.services.service2.title}
+          </h3>
+          <p class="font-body text-sm leading-relaxed text-[color:var(--muted-2)]">
+            {translations.services.service2.description}
+          </p>
         </div>
 
-        <!-- FUTURE SERVICE 3 -->
-        <div class="service-card reveal" style="opacity:.3;cursor:default">
-          <span class="badge" style="background:var(--navy3);color:var(--muted)">{translations.services.service3.badge}</span>
-          <h3 style="color:var(--muted)">{translations.services.service3.title}</h3>
-          <p>{translations.services.service3.description}</p>
-          <span class="arrow" style="color:var(--muted)">Coming soon...</span>
+        <div
+          class="reveal flex flex-col rounded-2xl border border-[color:color-mix(in_srgb,var(--border-default)_50%,transparent)] bg-[color:color-mix(in_srgb,var(--navy3)_50%,transparent)] p-5 opacity-70 dark:border-[color:var(--border-default)] dark:bg-white/60 sm:p-6 lg:col-start-3 lg:row-start-2"
+        >
+          <span
+            class="mb-4 inline-flex self-start rounded-md border border-[color:var(--border-default)] bg-[color:var(--navy3)] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[color:var(--muted)]"
+          >
+            {translations.services.service3.badge}
+          </span>
+          <h3
+            class={`font-display mb-2 text-[color:var(--muted)] dark:text-[#374151]${isMy ? '' : ' tracking-wide'}`}
+            style="font-size:clamp(1.125rem,2.2vw,1.5rem)"
+          >
+            {translations.services.service3.title}
+          </h3>
+          <p class="font-body text-sm leading-relaxed text-[color:var(--muted-2)]">
+            {translations.services.service3.description}
+          </p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- VALUES -->
-  <section class="section" aria-labelledby="values-title">
-    <div class="container reveal">
-      <span class="tag">{translations.values.tag}</span>
-      <h2 class="section-title" id="values-title">{translations.values.title}</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(0,194,255,.08);margin-top:40px">
-        {translations.values.items.map((v: any) => (
-          <div style="background:var(--navy2);padding:36px">
-            <h3 style="font-family:var(--display);font-size:26px;color:#00C2FF;margin-bottom:6px;letter-spacing:.02em">{v.title}</h3>
-            <p style="font-family:var(--myanmar);font-size:13px;color:var(--muted);line-height:1.7">{v.description}</p>
-          </div>
-        ))}
+  <!-- ── VALUES ───────────────────────────────────────── -->
+  <section
+    class="relative z-10 border-t border-[color:var(--border-default)] bg-[color:var(--navy)] py-20 dark:bg-white sm:py-24"
+    aria-labelledby="values-title"
+  >
+    <div class="reveal mx-auto w-full max-w-6xl px-[5%] sm:px-6">
+      <header class="mb-10 max-w-2xl sm:mb-12">
+        <p
+          class="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]"
+        >
+          // 02 VALUES
+        </p>
+        <h2
+          class={`font-display section-heading text-[color:var(--white)]${isMy ? '' : ' uppercase tracking-tight'}`}
+          id="values-title"
+        >
+          {translations.values.title}
+        </h2>
+      </header>
+
+      <ul
+        class="m-0 list-none overflow-hidden rounded-2xl border border-[color:var(--border-default)] bg-transparent p-0"
+      >
+        {
+          translations.values.items.map((v: any, i: number) => (
+            <li class="border-b border-[color:var(--border-default)] transition-colors duration-200 last:border-b-0 hover:bg-[color:color-mix(in_srgb,var(--navy3)_42%,transparent)] dark:hover:bg-[color:var(--navy)]">
+              <div class="grid items-start gap-6 px-5 py-8 sm:grid-cols-[4.5rem_1fr] sm:gap-10 sm:px-8 sm:py-9">
+                <span
+                  class="no-my-override font-display font-semibold tabular-nums leading-none text-[color:var(--brand-cyan)]"
+                  style="font-size:clamp(1.5rem,2.8vw,2rem)"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3
+                    class={`mb-2 font-display text-[color:var(--white)]${isMy ? '' : ' tracking-wide'}`}
+                    style="font-size:clamp(1.125rem,2.2vw,1.5rem)"
+                  >
+                    {v.title}
+                  </h3>
+                  <p class="font-body text-sm leading-relaxed text-[color:var(--muted-2)] sm:text-base">
+                    {v.description}
+                  </p>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ───────────────────────────────────────────────── -->
+  <section
+    class="relative z-10 border-t border-[color:var(--border-default)] bg-[color:var(--navy2)] py-24 sm:py-32"
+    aria-label="Call to action"
+  >
+    <div class="mx-auto w-full max-w-2xl px-[5%] text-center sm:px-6">
+      <p
+        class="mb-6 font-mono text-[11px] uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]"
+      >
+        // VPN Service
+      </p>
+      <h2
+        class={`font-display display-cta-wide mb-3 leading-none text-[color:var(--white)]${isMy ? '' : ' uppercase tracking-tight'}`}
+      >
+        {translations.hero.vpnCtaBand.title1}<br />
+        <span class="no-my-override text-[color:var(--white)]"
+          >{translations.hero.vpnCtaBand.title2}</span
+        >
+      </h2>
+      <div class="mx-auto mb-8 h-[3px] w-14 bg-[color:var(--brand-cyan)]" aria-hidden="true"></div>
+      <p
+        class="mx-auto mb-10 max-w-md font-body leading-relaxed text-[color:var(--muted)]"
+        style="font-size:clamp(14px,2vw,17px)"
+      >
+        {translations.hero.vpnCtaBand.sub}
+      </p>
+      <ButtonLink href={`/${locale}/vpn`} variant="primary" size="lg">
+        {translations.hero.vpnCtaBand.button}
+      </ButtonLink>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-6">
+        {
+          translations.vpn.hero.stats.map((s: any) => (
+            <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-[color:var(--muted-2)]">
+              <span class="mr-1.5 text-[color:var(--brand-cyan)]">{s.n}</span>
+              {s.l}
+            </span>
+          ))
+        }
       </div>
     </div>
   </section>

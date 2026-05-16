@@ -1,55 +1,85 @@
 ---
-import { getTranslations, getLocaleFromUrl } from '../i18n/index';
+import { getTranslations, getLocaleFromUrl, localePath } from '../i18n/index';
 
 const locale = getLocaleFromUrl(Astro.url.pathname);
+const isMy = locale === 'my';
 const translations = getTranslations(locale);
 const year = new Date().getFullYear();
 
-const getLocalizedLink = (path: string) => {
-  return locale === 'my' ? path : `/en${path}`;
-};
+const getLocalizedLink = (path: string) => localePath(locale, path);
+
+const linkClass =
+  'text-[13px] text-[color:var(--nav-link)] no-underline transition-colors duration-200 hover:text-[color:var(--white)]';
+const headingClass = `mb-4 font-mono text-[11px] text-[color:var(--muted)] ${isMy ? '' : 'uppercase '}tracking-[0.14em]`;
 ---
 
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span style="font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--white)">
-          {translations.common.brand}<span style="color:#00C2FF">.</span>{translations.common.brandAccent}
+<footer
+  class="relative z-10 border-t border-[color:var(--border-default)] bg-[color:var(--navy2)] px-[5%] pb-8 pt-14 sm:px-6"
+  role="contentinfo"
+>
+  <div class="mx-auto w-full max-w-6xl">
+    <div class="mb-14 grid grid-cols-2 gap-10 lg:grid-cols-3">
+      <!-- Brand -->
+      <div class="col-span-2 lg:col-span-1">
+        <span class="font-mono text-sm tracking-[.1em] text-[color:var(--white)]">
+          {translations.common.brand}<span class="text-[color:var(--brand-cyan)]">.</span>{
+            translations.common.brandAccent
+          }
         </span>
-        <p>{translations.footer.brandDesc}</p>
+        <p
+          class={`mt-3 font-myanmar text-sm leading-relaxed text-[color:var(--muted)] ${isMy ? 'max-w-[200px]' : 'max-w-xs'}`}
+        >
+          {translations.footer.brandDesc}
+        </p>
       </div>
-      <div class="footer-col">
-        <h4>{translations.footer.services}</h4>
-        <ul>
-          <li><a href={getLocalizedLink('/vpn')}>{translations.footer.serviceLinks.vpn}</a></li>
-          <li><a href={getLocalizedLink('/vpn#plans')}>{translations.footer.serviceLinks.plans}</a></li>
-          <li><a href={getLocalizedLink('/vpn#apps')}>{translations.footer.serviceLinks.apps}</a></li>
-          <li><a href={getLocalizedLink('/vpn#faq')}>{translations.footer.serviceLinks.faq}</a></li>
+
+      <!-- Services -->
+      <div>
+        <h4 class={headingClass}>{translations.footer.services}</h4>
+        <ul class="flex list-none flex-col gap-2.5">
+          <li>
+            <a href={getLocalizedLink('/vpn')} class={linkClass}
+              >{translations.footer.serviceLinks.vpn}</a
+            >
+          </li>
+          <li>
+            <a href={getLocalizedLink('/vpn#plans')} class={linkClass}
+              >{translations.footer.serviceLinks.plans}</a
+            >
+          </li>
+          <li>
+            <a href={getLocalizedLink('/vpn#apps')} class={linkClass}
+              >{translations.footer.serviceLinks.apps}</a
+            >
+          </li>
+          <li>
+            <a href={getLocalizedLink('/vpn#faq')} class={linkClass}
+              >{translations.footer.serviceLinks.faq}</a
+            >
+          </li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>{translations.footer.company}</h4>
-        <ul>
-          <li><a href={getLocalizedLink('/about')}>{translations.footer.companyLinks.about}</a></li>
-          <li><a href={getLocalizedLink('/privacy')}>{translations.footer.companyLinks.privacy}</a></li>
-          <li><a href={getLocalizedLink('/terms')}>{translations.footer.companyLinks.terms}</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>{translations.footer.connect}</h4>
-        <ul>
-          <li><a href="https://t.me/OperonConnectBot" target="_blank" rel="noopener">{translations.footer.connectLinks.telegram}</a></li>
-          <li><a href="https://t.me/OperonSupportBot" target="_blank" rel="noopener">{translations.footer.connectLinks.support}</a></li>
-          <li><a href="https://github.com/operon-connect" target="_blank" rel="noopener">{translations.footer.connectLinks.github}</a></li>
-          <li><a href="https://github.com/operon-connect/docs" target="_blank" rel="noopener">{translations.footer.connectLinks.documentation}</a></li>
-          <li><a href="https://github.com/operon-connect/brand" target="_blank" rel="noopener">{translations.footer.connectLinks.brandAssets}</a></li>
+
+      <!-- Company -->
+      <div>
+        <h4 class={headingClass}>{translations.footer.company}</h4>
+        <ul class="flex list-none flex-col gap-2.5">
+          <li>
+            <a href={getLocalizedLink('/about')} class={linkClass}
+              >{translations.footer.companyLinks.about}</a
+            >
+          </li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">{translations.footer.copyright.replace('{year}', year.toString())}</div>
-      <div class="footer-copy">{translations.footer.copyRights}</div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-[color:var(--border-default)] pt-6 text-center">
+      <p
+        class={`font-mono text-xs tracking-[.06em] text-[color:var(--muted)]${isMy ? ' font-myanmar' : ''}`}
+      >
+        {translations.footer.copyright.replace('{year}', year.toString())}
+      </p>
     </div>
   </div>
 </footer>

@@ -7,7 +7,7 @@ import { buildVpnJsonLd } from '../../../i18n/vpn-schemas';
 
 export function getStaticPaths() {
   return getAllLocales()
-    .filter((locale: string) => locale !== 'my')
+    .filter((locale: string) => locale !== 'en')
     .map((locale: string) => ({
       params: { lang: locale },
     }));
@@ -20,7 +20,7 @@ const { vpnSchema, faqSchema } = buildVpnJsonLd(translations.vpn);
 ---
 
 <Base title={translations.vpn.pageTitle} description={translations.vpn.pageDesc}>
-  <script type="application/ld+json" set:html={JSON.stringify(vpnSchema)} slot="head" />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(vpnSchema)} slot="head" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
   <VpnPageContent locale={locale} />
 </Base>

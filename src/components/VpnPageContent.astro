@@ -1,6 +1,7 @@
 ---
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
+import ButtonLink from './ButtonLink.astro';
 import type { Locale } from '../i18n/index';
 import { getTranslations } from '../i18n/index';
 
@@ -9,222 +10,467 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+const isMy = locale === 'my';
 const translations = getTranslations(locale);
 const vpn = translations.vpn;
-const bodyFont = locale === 'my' ? 'var(--myanmar)' : 'var(--body)';
+const bf = locale === 'my' ? 'font-myanmar' : 'font-body';
+const contactBadge =
+  'contactBadge' in vpn.pricing
+    ? (vpn.pricing as { contactBadge: string }).contactBadge
+    : 'CONTACT';
+
+const planCard =
+  'relative flex h-full flex-col rounded-2xl border bg-[color:var(--navy3)] p-6 md:p-8';
+const planBadge =
+  'absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-3.5 py-1 font-mono text-[10px] font-semibold tracking-[0.14em]';
+const planTier = `mt-3 mb-4 font-mono text-[11px] tracking-[0.14em] text-[color:var(--muted-2)]${isMy ? '' : ' uppercase'}`;
+const planDivider = 'mb-5 border-0 border-t border-[color:var(--border-default)]';
+const planFeatures = 'mb-6 flex-1 list-none space-y-2.5';
+const planFeature = `${bf} flex items-start gap-2.5 text-sm leading-snug text-[color:var(--muted-2)]`;
+const planCtaBase = `mt-auto block w-full rounded-lg py-3 text-center text-sm font-semibold tracking-wide transition-colors${isMy ? '' : ' uppercase'}`;
 ---
 
 <div class="vpn-page">
   <Nav />
 
-  <!-- Hero -->
-  <section class="section section-hero-vpn" aria-label="Hero">
-    <div class="container">
-      <div style="max-width:720px">
-        <h1 class="display-hero-vpn">
-          <span style="display:block;color:var(--white)">{vpn.hero.headline1}</span>
-          <span style="display:block;-webkit-text-stroke:2px #00C2FF;color:transparent">{vpn.hero.headline2}</span>
-          <span style="display:block;color:var(--white)">{vpn.hero.headline3}</span>
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section
+    class="relative z-10 flex min-h-[85vh] items-center pb-20"
+    style="padding-top:clamp(96px,18vh,160px)"
+    aria-label="Hero"
+  >
+    <div class="mx-auto w-full max-w-[1200px] px-[5%]">
+      <div class="max-w-[720px]">
+        <h1 class="display-hero-vpn mb-2 font-display leading-none tracking-tight">
+          <span class="no-my-override block text-[color:var(--white)]">{vpn.hero.headline1}</span>
+          <span class="no-my-override block text-[color:var(--white)]">{vpn.hero.headline2}</span>
+          <span class="no-my-override block text-[color:var(--white)]">{vpn.hero.headline3}</span>
         </h1>
-        <p style={`font-family:${bodyFont};font-size:clamp(15px,2.5vw,20px);color:var(--muted);margin-bottom:12px;line-height:1.9;max-width:560px`}>
+        <div class="mb-8 h-[3px] w-12 bg-[color:var(--brand-cyan)]" aria-hidden="true"></div>
+        <p
+          class={`${bf} text-[color:var(--muted)] leading-relaxed mb-3`}
+          style="font-size:clamp(15px,2.5vw,20px);max-width:560px"
+        >
           {vpn.hero.tagline}
         </p>
-        <p style={`font-family:${bodyFont};font-size:clamp(14px,2vw,17px);color:var(--muted);margin-bottom:48px;line-height:1.7;max-width:560px`}>
+        <p
+          class={`${bf} text-[color:var(--muted)] leading-relaxed mb-12 opacity-90`}
+          style="font-size:clamp(13px,2vw,16px);max-width:560px"
+        >
           {vpn.hero.taglineSub}
         </p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap">
-          <a href="https://t.me/OperonConnectBot" class="btn-primary" target="_blank" rel="noopener">
+        <div class="mb-14 flex flex-wrap gap-3 sm:gap-4">
+          <ButtonLink
+            href="https://t.me/OperonConnectBot"
+            variant="primary"
+            size="md"
+            target="_blank"
+            rel="noopener"
+          >
             {vpn.hero.ctaPrimary}
-          </a>
-          <a href="#plans" class="btn-ghost">{vpn.hero.ctaSecondary}</a>
+          </ButtonLink>
+          <ButtonLink href="#plans" variant="secondary" size="md">
+            {vpn.hero.ctaSecondary}
+          </ButtonLink>
         </div>
-        <div style="display:flex;gap:40px;flex-wrap:wrap;margin-top:56px">
-          {vpn.hero.stats.map((s) => (
-            <div>
-              <div style="font-family:var(--display);font-size:40px;color:#00C2FF;line-height:1">{s.n}</div>
-              <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;margin-top:4px">{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- How it works -->
-  <section class="section" aria-labelledby="how-title">
-    <div class="container reveal">
-      <span class="tag">{vpn.howItWorks.tag}</span>
-      <h2 class="section-title" id="how-title">{vpn.howItWorks.title}</h2>
-      <p class="section-sub" style={`font-family:${bodyFont}`}>{vpn.howItWorks.subtitle}</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(0,194,255,.08)">
-        {vpn.howItWorks.steps.map((s) => (
-          <div style="background:var(--navy2);padding:40px 32px;position:relative;transition:.3s">
-            <div style="font-family:var(--mono);font-size:48px;color:rgba(0,194,255,.08);font-weight:600;line-height:1;margin-bottom:24px">{s.n}</div>
-            <h3 class="vpn-step-title">{s.title}</h3>
-            <p style={`font-family:${bodyFont};font-size:14px;color:var(--muted);line-height:1.7`}>{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- PLANS -->
-  <section class="section" id="plans" aria-labelledby="plans-title">
-    <div class="container reveal">
-      <span class="tag">{vpn.pricing.tag}</span>
-      <h2 class="section-title" id="plans-title">{vpn.pricing.title}</h2>
-      <p class="section-sub" style={`font-family:${bodyFont}`}>{vpn.pricing.subtitle}</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
-        {vpn.pricing.plans.map((p) => {
-          const isPh = 'placeholder' in p && p.placeholder;
-          const isContact = 'contactOnly' in p && (p as { contactOnly?: boolean }).contactOnly;
-          const contactHref = isContact ? (p as { contactHref?: string }).contactHref ?? '#' : '';
-          const contactCta = isContact ? (p as { contactCta?: string }).contactCta ?? '' : '';
-          return (
-            <div
-              style={
-                isPh
-                  ? 'border:1px dashed rgba(0,194,255,.28);background:var(--navy2);padding:36px;position:relative;opacity:.88'
-                  : isContact
-                    ? 'border:1px solid rgba(0,194,255,.4);background:var(--navy3);padding:36px;position:relative'
-                    : `border:1px solid ${p.featured ? '#00C2FF' : 'var(--border-soft)'};background:${p.featured ? 'var(--navy3)' : 'var(--navy2)'};padding:36px;position:relative`
-              }
-            >
-              {isPh ? (
-                <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--navy2);color:var(--muted);border:1px solid rgba(0,194,255,.35);font-family:var(--mono);font-size:9px;letter-spacing:.12em;font-weight:700;padding:4px 16px;white-space:nowrap">
-                  {vpn.pricing.placeholderBadge}
-                </div>
-              ) : isContact ? (
-                <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:rgba(0,194,255,.15);color:#00C2FF;border:1px solid rgba(0,194,255,.45);font-family:var(--mono);font-size:9px;letter-spacing:.12em;font-weight:700;padding:4px 16px;white-space:nowrap">
-                  {'contactBadge' in vpn.pricing ? (vpn.pricing as { contactBadge: string }).contactBadge : 'CONTACT'}
-                </div>
-              ) : p.featured ? (
-                <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#00C2FF;color:var(--navy);font-family:var(--mono);font-size:9px;letter-spacing:.12em;font-weight:700;padding:4px 16px;white-space:nowrap">
-                  {vpn.pricing.popularBadge}
-                </div>
-              ) : null}
-              <div style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);margin-bottom:12px">{p.tier}</div>
-              <div class:list={['vpn-price-display', { 'vpn-price-placeholder': isPh }]}>
-                {p.price}
-                {p.unit ? (
-                  <>
-                    {' '}
-                    <span style="font-family:var(--mono);font-size:13px;color:var(--muted);font-weight:400">{p.unit}</span>
-                  </>
-                ) : null}
-              </div>
-              <div class:list={['vpn-data-display', { 'vpn-data-placeholder': isPh }]}>{p.data}</div>
-              <p style={`font-family:${bodyFont};font-size:13px;color:var(--muted);margin-bottom:28px`}>{p.desc}</p>
-              <ul style="list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:8px">
-                {p.features.map((f) => (
-                  <li style={`font-family:${bodyFont};font-size:13px;color:var(--white);display:flex;align-items:center;gap:8px`}>
-                    <span style="color:#00C2FF;font-family:var(--mono)">—</span>
-                    {f}
-                  </li>
-                ))}
-                {p.missing.map((f) => (
-                  <li style={`font-family:${bodyFont};font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px`}>
-                    <span style="color:var(--muted);font-family:var(--mono)">—</span>
-                    {f} ❌
-                  </li>
-                ))}
-              </ul>
-              {isPh ? (
+        <div class="flex flex-wrap gap-10 pb-2">
+          {
+            vpn.hero.stats.map((s) => (
+              <div>
                 <div
-                  style="display:block;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:12px;border:1px dashed var(--border-strong);color:var(--muted);cursor:default;user-select:none"
+                  class="font-display leading-none text-[color:var(--brand-cyan)]"
+                  style="font-size:clamp(32px,5vw,48px)"
+                >
+                  {s.n}
+                </div>
+                <div
+                  class={`mt-1 text-[color:var(--muted-2)]${isMy ? ' font-myanmar text-xs' : ' font-body text-sm'}`}
+                >
+                  {s.l}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ──────────────────────────────────────────── -->
+  <section class="relative z-10 py-12 md:py-16" aria-labelledby="how-title">
+    <div class="reveal mx-auto w-full max-w-[1200px] px-[5%]">
+      <span
+        class="mb-3 block font-mono text-[11px] tracking-[.15em] text-[color:var(--brand-cyan)]"
+      >
+        {vpn.howItWorks.tag}
+      </span>
+      <h2
+        class={`font-display section-title text-[color:var(--white)] mb-3${isMy ? '' : ' uppercase tracking-tight'}`}
+        id="how-title"
+      >
+        {vpn.howItWorks.title}
+      </h2>
+      <p class={`${bf} text-[color:var(--muted)] mb-10`} style="font-size:clamp(14px,2vw,16px)">
+        {vpn.howItWorks.subtitle}
+      </p>
+
+      <div
+        class="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4"
+        style="background:rgba(255,255,255,.04)"
+      >
+        {
+          vpn.howItWorks.steps.map((s) => (
+            <div class="p-10" style="background:var(--navy2)">
+              <div
+                class="no-my-override mb-5 font-display font-semibold tabular-nums leading-none text-[color:var(--brand-cyan)]"
+                style="font-size:clamp(1.375rem,2.4vw,1.875rem)"
+              >
+                {s.n}
+              </div>
+              <h3
+                class={`mb-3 font-display text-[color:var(--white)]${isMy ? '' : ' tracking-wide'}`}
+                style="font-size:clamp(18px,2.5vw,24px)"
+              >
+                {s.title}
+              </h3>
+              <p class={`${bf} text-sm leading-relaxed text-[color:var(--muted)]`}>{s.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PLANS ─────────────────────────────────────────────────── -->
+  <section
+    class="relative z-10 py-12 md:py-16"
+    style="background:var(--navy2)"
+    id="plans"
+    aria-labelledby="plans-title"
+  >
+    <div class="reveal mx-auto w-full max-w-[1200px] px-[5%]">
+      <span
+        class="mb-3 block font-mono text-[11px] tracking-[.15em] text-[color:var(--brand-cyan)]"
+      >
+        {vpn.pricing.tag}
+      </span>
+      <h2
+        class={`font-display section-title text-[color:var(--white)] mb-3${isMy ? '' : ' uppercase tracking-tight'}`}
+        id="plans-title"
+      >
+        {vpn.pricing.title}
+      </h2>
+      <p class={`${bf} text-[color:var(--muted)] mb-10`} style="font-size:clamp(13px,2vw,15px)">
+        {vpn.pricing.subtitle}
+      </p>
+
+      <div class="grid grid-cols-1 items-stretch gap-5 md:grid-cols-3 md:gap-6">
+        {
+          vpn.pricing.plans.map((p) => {
+            const isPh = 'placeholder' in p && p.placeholder;
+            const isContact = 'contactOnly' in p && (p as { contactOnly?: boolean }).contactOnly;
+            const contactHref = isContact
+              ? ((p as { contactHref?: string }).contactHref ?? '#')
+              : '';
+            const contactCta = isContact ? ((p as { contactCta?: string }).contactCta ?? '') : '';
+            const contactDisabled =
+              isContact && (p as { contactDisabled?: boolean }).contactDisabled === true;
+
+            if (p.featured) {
+              return (
+                <article
+                  class={`${planCard} border-[color:var(--brand-cyan)] shadow-[0_0_0_1px_color-mix(in_srgb,var(--brand-cyan)_35%,transparent)]`}
+                >
+                  <span
+                    class={`${planBadge} bg-[color:var(--brand-cyan)] text-[color:var(--cta-primary-fg)]`}
+                  >
+                    {vpn.pricing.popularBadge}
+                  </span>
+                  <p class={planTier}>{p.tier}</p>
+                  <div class="flex items-baseline gap-1.5">
+                    <span class="font-display text-5xl font-black leading-none text-[color:var(--white)] md:text-6xl">
+                      {p.price}
+                    </span>
+                    {p.unit ? (
+                      <span class={`${bf} text-sm text-[color:var(--muted-2)]`}>{p.unit}</span>
+                    ) : null}
+                  </div>
+                  <p class="mt-2 font-display text-2xl font-black text-[color:var(--brand-cyan)] md:text-3xl">
+                    {p.data}
+                  </p>
+                  <p class={`${bf} mt-2 text-sm leading-relaxed text-[color:var(--muted-2)]`}>
+                    {p.desc}
+                  </p>
+                  <hr class={planDivider} />
+                  <ul class={planFeatures}>
+                    {p.features.map((f) => (
+                      <li class={`${planFeature} text-[color:var(--white)]`}>
+                        <span
+                          class="mt-0.5 shrink-0 text-[color:var(--brand-cyan)]"
+                          aria-hidden="true"
+                        >
+                          —
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="https://t.me/OperonConnectBot"
+                    target="_blank"
+                    rel="noopener"
+                    class={`${planCtaBase} bg-[color:var(--cta-primary-bg)] text-[color:var(--cta-primary-fg)] hover:bg-[color:var(--cta-primary-hover)]`}
+                  >
+                    {vpn.pricing.cta}
+                  </a>
+                </article>
+              );
+            }
+
+            if (isPh) {
+              return (
+                <article
+                  class={`${planCard} border-dashed border-[color:var(--border-strong)] bg-[color:var(--navy2)] opacity-75`}
                   aria-disabled="true"
                 >
-                  {vpn.pricing.placeholderCta}
-                </div>
-              ) : isContact ? (
-                <a
-                  href={contactHref}
-                  target="_blank"
-                  rel="noopener"
-                  style="display:block;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:12px;text-decoration:none;transition:.2s;background:rgba(0,194,255,.12);color:#00C2FF;border:1px solid rgba(0,194,255,.45)"
+                  <span
+                    class={`${planBadge} border border-[color:var(--border-strong)] bg-[color:var(--navy3)] text-[color:var(--muted-2)]`}
+                  >
+                    {vpn.pricing.placeholderBadge}
+                  </span>
+                  <p class={planTier}>{p.tier}</p>
+                  <p class="font-display text-5xl font-black leading-none text-[color:var(--muted)] md:text-6xl">
+                    {p.price}
+                  </p>
+                  <p class="mt-2 font-display text-2xl font-black text-[color:var(--muted)] md:text-3xl">
+                    {p.data}
+                  </p>
+                  <p class={`${bf} mt-2 text-sm leading-relaxed text-[color:var(--muted)]`}>
+                    {p.desc}
+                  </p>
+                  <hr class={planDivider} />
+                  <ul class={planFeatures}>
+                    {p.features.map((f) => (
+                      <li class={planFeature}>
+                        <span class="mt-0.5 shrink-0" aria-hidden="true">
+                          —
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div
+                    class={`${planCtaBase} border border-[color:var(--border-strong)] text-[color:var(--muted)]`}
+                  >
+                    {vpn.pricing.placeholderCta}
+                  </div>
+                </article>
+              );
+            }
+
+            if (isContact) {
+              return (
+                <article
+                  class={`${planCard} border-l-4 border-[color:var(--border-card)] border-l-[#00C896]`}
                 >
-                  {contactCta}
-                </a>
-              ) : (
-                <a
-                  href="https://t.me/OperonConnectBot"
-                  target="_blank"
-                  rel="noopener"
-                  style={`display:block;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:12px;text-decoration:none;transition:.2s;${p.featured ? 'background:#00C2FF;color:var(--navy);border:1px solid #00C2FF' : 'border:1px solid var(--border-strong);color:var(--muted)'}`}
-                >
-                  {vpn.pricing.cta}
-                </a>
-              )}
-            </div>
-          );
-        })}
-      </div>
-      {vpn.pricing.comingSoon ? (
-        <p
-          style={`font-family:${bodyFont};font-size:14px;color:var(--muted);text-align:center;margin-top:28px;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto`}
-        >
-          {vpn.pricing.comingSoon}
-        </p>
-      ) : null}
-    </div>
-  </section>
+                  <span
+                    class={`${planBadge} border border-[color:var(--border-strong)] bg-[color:var(--navy2)] text-[#00C896]`}
+                  >
+                    {contactBadge}
+                  </span>
+                  <p class={planTier}>{p.tier}</p>
+                  <h3
+                    class={`font-display text-2xl font-black leading-tight text-[color:var(--white)] md:text-3xl${isMy ? '' : ' uppercase tracking-tight'}`}
+                  >
+                    {p.data}
+                  </h3>
+                  <p class={`${bf} mt-3 text-sm leading-relaxed text-[color:var(--muted-2)]`}>
+                    {p.desc}
+                  </p>
+                  <hr class={planDivider} />
+                  <ul class={planFeatures}>
+                    {p.features.map((f) => (
+                      <li class={`${planFeature} text-[color:var(--white)]`}>
+                        <span class="mt-0.5 shrink-0 text-[#00C896]" aria-hidden="true">
+                          —
+                        </span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  {contactDisabled ? (
+                    <div
+                      class={`${planCtaBase} cursor-not-allowed border border-[color:var(--border-strong)] text-[color:var(--muted)] opacity-70`}
+                      aria-disabled="true"
+                    >
+                      {contactCta}
+                    </div>
+                  ) : (
+                    <a
+                      href={contactHref}
+                      target="_blank"
+                      rel="noopener"
+                      class={`${planCtaBase} border border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-[color:var(--navy)]`}
+                    >
+                      {contactCta}
+                    </a>
+                  )}
+                </article>
+              );
+            }
 
-  <!-- COMPATIBLE APPS -->
-  <section class="section" id="apps" style="background:var(--navy2)" aria-labelledby="apps-title">
-    <div class="container reveal">
-      <span class="tag">{vpn.apps.tag}</span>
-      <h2 class="section-title" id="apps-title">{vpn.apps.title}</h2>
-      <p class="section-sub" style={`font-family:${bodyFont}`}>{vpn.apps.subtitle}</p>
-      <div style="display:flex;flex-wrap:wrap;gap:16px">
-        {vpn.apps.items.map((app) => (
-          <div style="border:1px solid rgba(0,194,255,.15);padding:16px 20px;min-width:200px">
-            <div style="font-family:var(--mono);font-size:13px;color:var(--white);margin-bottom:4px">{app.name}</div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em">{app.platforms}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq" aria-labelledby="faq-title">
-    <div class="container reveal">
-      <span class="tag">{vpn.faq.tag}</span>
-      <h2 class="section-title" id="faq-title">{vpn.faq.title}</h2>
-      <div style="max-width:800px;display:flex;flex-direction:column;gap:1px">
-        {vpn.faq.items.map((item) => (
-          <details class="vpn-faq-details" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <summary class="vpn-faq-summary" style={`font-family:${bodyFont}`}>
-              <span itemprop="name">{item.question}</span>
-              <span class="vpn-faq-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="vpn-faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-              <p class="vpn-faq-answer-text" style={`font-family:${bodyFont}`} itemprop="text">
-                {item.answer}
-              </p>
-            </div>
-          </details>
-        ))}
+            return null;
+          })
+        }
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ── COMPATIBLE APPS ───────────────────────────────────────── -->
+  <section class="relative z-10 py-12 md:py-16" id="apps" aria-labelledby="apps-title">
+    <div class="reveal mx-auto w-full max-w-[1200px] px-[5%]">
+      <span
+        class="mb-3 block font-mono text-[11px] tracking-[.15em] text-[color:var(--brand-cyan)]"
+      >
+        {vpn.apps.tag}
+      </span>
+      <h2
+        class={`font-display section-title text-[color:var(--white)] mb-3${isMy ? '' : ' uppercase tracking-tight'}`}
+        id="apps-title"
+      >
+        {vpn.apps.title}
+      </h2>
+      <p class={`${bf} mb-10 text-[color:var(--muted)]`} style="font-size:clamp(13px,2vw,15px)">
+        {vpn.apps.subtitle}
+      </p>
+
+      <div
+        class="overflow-hidden rounded-xl border border-[color:var(--border-card)] dark:border-[#E2E8F0]"
+      >
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+          {
+            vpn.apps.items.map((app, i) => (
+              <div
+                class:list={[
+                  'bg-[color:var(--navy2)] px-4 py-4 dark:bg-white sm:px-6 sm:py-4',
+                  i % 2 !== 1 && 'border-r border-[color:var(--border-card)] dark:border-[#E2E8F0]',
+                  'max-sm:[&:nth-child(2n)]:border-r-0',
+                  'sm:max-lg:[&:nth-child(3n)]:border-r-0',
+                  'lg:[&:nth-child(6n)]:border-r-0',
+                ]}
+              >
+                <p class="text-sm font-semibold text-[color:var(--white)]">{app.name}</p>
+                <p class="mt-0.5 font-mono text-xs text-[color:var(--muted)]">{app.platforms}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ───────────────────────────────────────────────────── -->
   <section
-    style="text-align:center;padding:100px 5%;position:relative;z-index:1;border-top:1px solid rgba(0,194,255,.08)"
-    aria-label={vpn.cta.ariaLabel}
+    class="relative z-10 py-12 md:py-16"
+    style="background:var(--navy2)"
+    id="faq"
+    aria-labelledby="faq-title"
   >
-    <h2 class="display-cta-wide">
-      {vpn.cta.line1}<br /><span style="color:#00C2FF">{vpn.cta.line2}</span>
-    </h2>
-    <p style={`font-family:${bodyFont};font-size:16px;color:var(--muted);margin-bottom:40px;line-height:1.8`}>
-      {vpn.cta.bodyLine1}
-      <br />
-      {vpn.cta.bodyLine2}
-    </p>
-    <a href="https://t.me/OperonConnectBot" class="btn-primary" style="font-size:14px;padding:16px 48px" target="_blank" rel="noopener">
-      {vpn.cta.button}
-    </a>
+    <div class="reveal mx-auto w-full max-w-[1200px] px-[5%]">
+      <span
+        class="mb-3 block font-mono text-[11px] tracking-[.15em] text-[color:var(--brand-cyan)]"
+      >
+        {vpn.faq.tag}
+      </span>
+      <h2
+        class={`font-display section-title mb-12 text-[color:var(--white)]${isMy ? '' : ' uppercase tracking-tight'}`}
+        id="faq-title"
+      >
+        {vpn.faq.title}
+      </h2>
+
+      <div class="max-w-[800px] border-t border-[color:var(--border-card)] dark:border-[#E2E8F0]">
+        {
+          vpn.faq.items.map((item) => (
+            <details
+              class="group border-b border-[color:var(--border-card)] dark:border-[#E2E8F0]"
+              itemscope
+              itemprop="mainEntity"
+              itemtype="https://schema.org/Question"
+            >
+              <summary
+                class={`flex cursor-pointer items-center justify-between gap-4 py-5 text-left ${bf}`}
+                itemprop="name"
+              >
+                <span class="text-sm font-medium text-[color:var(--white)]">{item.question}</span>
+                <span class="ml-4 shrink-0 font-mono text-lg font-light text-[color:var(--brand-cyan)] transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div
+                class="pb-5"
+                itemscope
+                itemprop="acceptedAnswer"
+                itemtype="https://schema.org/Answer"
+              >
+                <p
+                  class={`${bf} text-sm leading-relaxed text-[color:var(--muted)]`}
+                  itemprop="text"
+                >
+                  {item.answer}
+                </p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────────── -->
+  <section class="relative z-10 pb-20" aria-label={vpn.cta.ariaLabel}>
+    <div class="mx-auto w-full max-w-[1200px] px-[5%]">
+      <div
+        class="mb-16 h-px"
+        style="background:linear-gradient(to right, #00C2FF, rgba(0,194,255,0))"
+      >
+      </div>
+      <div class="grid grid-cols-1 items-end gap-12 lg:grid-cols-2">
+        <div>
+          <h2
+            class={`font-display display-cta-wide leading-none text-[color:var(--white)]${isMy ? '' : ' uppercase tracking-tight'}`}
+          >
+            {vpn.cta.line1}<br />
+            <span class="no-my-override text-[color:var(--white)]">{vpn.cta.line2}</span>
+          </h2>
+          <div class="mt-4 h-[3px] w-16 bg-[color:var(--brand-cyan)]" aria-hidden="true"></div>
+        </div>
+        <div>
+          <p
+            class={`${bf} mb-3 leading-relaxed text-[color:var(--muted)]`}
+            style="font-size:clamp(14px,2vw,17px)"
+          >
+            {vpn.cta.bodyLine1}
+          </p>
+          <p
+            class={`${bf} mb-8 leading-relaxed text-[color:var(--muted)]`}
+            style="font-size:clamp(13px,2vw,15px);opacity:.8"
+          >
+            {vpn.cta.bodyLine2}
+          </p>
+          <ButtonLink
+            href="https://t.me/OperonConnectBot"
+            variant="primary"
+            size="lg"
+            target="_blank"
+            rel="noopener"
+          >
+            {vpn.cta.button}
+          </ButtonLink>
+        </div>
+      </div>
+    </div>
   </section>
 
   <Footer />

@@ -8,11 +8,13 @@ const translations = {
   en,
 } as const;
 
-export function getTranslations(locale: Locale = 'my') {
-  return translations[locale] || translations.my;
+const defaultLocale: Locale = 'en';
+
+export function getTranslations(locale: Locale = defaultLocale) {
+  return translations[locale] || translations.en;
 }
 
-export function t(locale: Locale = 'my', key: string, defaultValue: string = ''): string {
+export function t(locale: Locale = defaultLocale, key: string, defaultValue: string = ''): string {
   const keys = key.split('.');
   let value: any = translations[locale];
 
@@ -27,11 +29,20 @@ export function t(locale: Locale = 'my', key: string, defaultValue: string = '')
 }
 
 export function getAllLocales(): Locale[] {
-  return ['my', 'en'];
+  return ['en', 'my'];
 }
 
 export function getDefaultLocale(): Locale {
-  return 'my';
+  return defaultLocale;
+}
+
+/** Path for a locale; default (en) has no URL prefix, my uses /my/… */
+export function localePath(locale: Locale, path: string = '/'): string {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  if (locale === getDefaultLocale()) {
+    return normalized === '/' ? '/' : normalized;
+  }
+  return normalized === '/' ? `/${locale}/` : `/${locale}${normalized}`;
 }
 
 export function isValidLocale(locale: string): locale is Locale {

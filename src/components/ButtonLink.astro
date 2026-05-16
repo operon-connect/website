@@ -1,0 +1,39 @@
+---
+/**
+ * Shared action links (hero CTAs, band buttons, etc.)
+ */
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary';
+  size?: 'md' | 'lg';
+  target?: string;
+  rel?: string;
+  class?: string;
+}
+
+const { href, variant = 'primary', size = 'md', target, rel, class: className = '' } = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center gap-2 font-mono no-underline shadow-none ring-0 [filter:none] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan/55';
+
+const sizes: Record<string, string> = {
+  md: 'min-h-[2.75rem] rounded-full px-7 py-2.5 text-[11px] leading-tight tracking-[0.12em] sm:px-8 sm:py-3 sm:text-xs sm:tracking-[0.1em]',
+  lg: 'min-h-[3.25rem] rounded-full px-9 py-3 text-sm leading-tight tracking-[0.1em] sm:px-10 sm:py-3.5',
+};
+
+const variants: Record<string, string> = {
+  primary:
+    'font-semibold bg-[color:var(--cta-primary-bg)] text-[color:var(--cta-primary-fg)] [box-shadow:none] hover:bg-[color:var(--cta-primary-hover)]',
+  secondary:
+    'font-medium dark:font-semibold border border-[color:var(--border-default)] bg-[color:var(--cta-secondary-bg)] text-[color:var(--cta-secondary-fg)] [box-shadow:none] hover:border-[color:var(--border-strong)] hover:text-[color:var(--white)]',
+};
+---
+
+<a
+  href={href}
+  class:list={[base, sizes[size], variants[variant], className]}
+  target={target}
+  rel={rel}
+>
+  <slot />
+</a>
