@@ -18,9 +18,24 @@ const locale = lang as Locale;
 const translations = getTranslations(locale);
 const about = translations.about;
 const bf = 'font-myanmar';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: about.pageTitle,
+  description: about.pageDesc,
+  url: `https://operonconnect.com/${locale}/about`,
+  inLanguage: locale === 'my' ? 'my-MM' : 'en',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Operon Connect',
+    url: 'https://operonconnect.com',
+  },
+};
 ---
 
 <Base title={about.pageTitle} description={about.pageDesc}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(aboutSchema)} slot="head" />
   <Nav />
 
   <section
